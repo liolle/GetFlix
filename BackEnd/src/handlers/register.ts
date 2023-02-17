@@ -45,9 +45,9 @@ const register = async (req: Request, res: Response): Promise<void> => {
         return;
     }
   
-  };
+};
   
-  export default register;
+export default register;
   
   
   

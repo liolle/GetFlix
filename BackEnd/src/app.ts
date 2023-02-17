@@ -29,8 +29,8 @@ app.use(cors());
 */
 
 app.use('/register',require('./routes/register.route'))
+app.use('/login',require('./routes/login.route'))
 /*
-app.use('/login',require('./routes/login'))
 app.use('/refresh',require('./routes/refresh'))
 app.use('/logout',require('./routes/logout'))
 */
