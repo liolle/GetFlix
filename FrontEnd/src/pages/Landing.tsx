@@ -2,7 +2,7 @@
 import React from 'react'
 
 import Faq from '../Components/FAQ/Faq'
-
+import Footer from '../Components/Footer/Footer'
 import sectionImage from '../images/sectionImage.png'
 import myImage1 from '../images/myImage1.jpg'
 import myImage2 from '../images/myImage2.jpg'
@@ -99,7 +99,9 @@ const LandingPage: React.FunctionComponent = () => {
     </div>
   </div>
   <Faq/>
+  <Footer/>
 </section>
+
 
   
 
