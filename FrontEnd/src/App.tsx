@@ -1,21 +1,26 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import './App.css'
+// import React, { useState } from 'react'
+import {Routes, Route} from 'react-router-dom'
+import Inscription from "./Components/Inscription/Inscription"
+import Login from "./Components/Login/Login"
+import Payement from "./Components/Payement/Payement"
+import Footer from "./Components/Footer/Footer"
 
-import Inscription from "./Components/Auth/Inscription/Inscription"
-import Connexion from "./Components/Auth/Connexion/connexion"
+// import './App.css'
 
 
 function App() {
   return (
-    <>
-    <Inscription />
-    <Connexion />
-    </>
-      
-      
+
+    <div className="App">
+      <Routes>
+        <Route path='/' element={<Inscription />} />  
+        <Route path='/Login' element={<Login />} />
+        <Route path='/Payement' element={<Payement />} />
+        <Route path='/Footer' element={<Footer />} />
+      </Routes> 
+    </div>  
+  );
   
-  )
 }
 
-export default App
+export default App;
