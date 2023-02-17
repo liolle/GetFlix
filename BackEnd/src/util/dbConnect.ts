@@ -21,11 +21,11 @@ abstract class DbConnect {
     
   }
 
-  abstract findAll(...params:any):any;
-  abstract findOne(...params:any):any;
-  abstract create(...params:any):boolean;
-  abstract update(...params:any):boolean;
-  abstract delete(...params:any):boolean;
+  abstract findAll(...params:any):Promise<any>;
+  abstract findOne(...params:any):Promise<any>;
+  abstract create(...params:any):Promise<any>;
+  abstract update(...params:any):Promise<any>;
+  abstract delete(...params:any):Promise<any>;
 
   pollEnd() {
     this.connection.end();

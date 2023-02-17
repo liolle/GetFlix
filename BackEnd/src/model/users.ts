@@ -22,10 +22,10 @@ export class User extends DbConnect {
 
     constructor(
         email:string,
-        pwd:string,
-        username:string = "",
-        role:string = "USER",
-        token:string = "",
+        pwd = "",
+        username = "",
+        role = "USER",
+        token = "",
     ) {
 
         if (!email || email.length < 1) {
@@ -39,50 +39,107 @@ export class User extends DbConnect {
         this.role = role;
         this.token = token;
     }
+
+    async validatePwd(pwd:string):Promise<boolean|string>{
+
+        return new Promise<boolean>(async (resolve, reject) => {
+            
+            this.findOne()
+            .then((data)=>{
+                resolve( bcrypt.compareSync(pwd,data[0]['pwd']))
+            })
+            .catch((err)=>{
+                reject(err)
+            })
+            
+
+        })
+
+    }
+
+
     
-    setPwd(pwd:string){
-        
-        if (!pwd || pwd.length < 1) {
-            throw new Error('Password is required and must not be empty');
-        }
-
-        this.pwd = pwd
-    }
-
-    private validatePwd(pwd:string):boolean{
-
-        // get hashedPwd from db
-        let storedPwd = "azerty"
-
-        return bcrypt.compareSync(pwd,storedPwd)
-    }
-
     
     
     findAll():any{
         //TODO
     }
-    findOne():Promise<[]>{
-        console.log(this.email)
-        this.connection.query(`SELECT * FROM user WHERE email = "${this.email}" `, (err:any, rows:any, fields:any)=>{
-            return new Promise<[]>((resolve, reject) => {
+
+    async findOne(){
+        return new Promise<any>((resolve, reject) => {
+            
+            this.connection.query(`SELECT * FROM user WHERE email = "${this.email}"`, (err:any, rows:[], fields:any)=>{
+                if (err ){
+                    reject(err['sqlMessage'])
+                }
+
+                if (rows.length == 0) {
+                    reject("no user found")
+                }
+
                 resolve(rows)
             })
         })
-        return new Promise<[]>((resolve, reject) => {
-            resolve([])
+        
+    }
+    async create(pwd:string):Promise<boolean|string>{
+        const hashedPwd =  await bcrypt.hash(pwd, 10)
+        return new Promise<boolean>((resolve, reject) => {
+
+            let sql = `INSERT INTO user (email,pwd,username,role,token)
+            VALUES ('${this.email}', '${hashedPwd}', '','USER','')`
+            
+            this.connection.query(sql, (err:any, rows:any, fields:any)=>{
+                if (err){
+                    reject(err['sqlMessage'])
+                }
+                resolve(true)
+            })
         })
     }
-    create():boolean{
+
+    update(username='',role='',token='x'):Promise<boolean>{
         //TODO
-        return true;
+
+        const updateString = (username='',role='',token='x')=>{
+            let res = ""
+
+            if(username) res+=`username = '${username}'`;
+            if(role) res == ""? res+=` role = '${role}'`:res+=`, role = '${role}'`;
+            if(token != 'x') res == ""? res+=` token = '${token}'`:res+=`, token = '${token}'`;
+
+            return res
+        }
+
+        return new Promise<boolean>((resolve, reject) => {
+
+            if (username ==''&&role==''&&token=='x') reject("missing update argument")
+
+            let sql = `UPDATE user SET ${updateString(username,role,token)} WHERE email = '${this.email}'`
+            
+            this.connection.query(sql, (err:any, rows:any, fields:any)=>{
+                if (err){
+                    reject("Request error: "+err['sqlMessage'])
+                }
+                resolve(true)
+            })
+        })
     }
-    update():boolean{
+    delete():Promise<boolean>{
         //TODO
-        return true;
-    }
-    delete():boolean{
-        //TODO
-        return true;
+        return new Promise<boolean>((resolve, reject) => {
+
+           
+
+            let sql = `DELETE from user 
+            WHERE email = '${this.email}'`
+            
+            this.connection.query(sql, (err:any, rows:any, fields:any)=>{
+                if (err){
+                    reject(err['sqlMessage'])
+                }
+                resolve(true)
+            })
+        })
     }
 }
