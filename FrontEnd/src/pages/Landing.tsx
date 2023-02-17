@@ -2,6 +2,7 @@
 import React from 'react'
 
 import Faq from '../Components/FAQ/Faq'
+import {Link} from 'react-router-dom'
 import Footer from '../Components/Footer/Footer'
 import sectionImage from '../images/sectionImage.png'
 import myImage1 from '../images/myImage1.jpg'
@@ -30,13 +31,13 @@ const LandingPage: React.FunctionComponent = () => {
           
           <div>
             <button className="bg-gradient-to-r from-sky-400 to-sky-900 text-white py-1 px-6 text-lg rounded-md mb-8">
-              Login
-            </button>
+            <Link to="/Login">Login</Link></button>
+            
           </div>
           <div>
             <button className="bg-gradient-to-r  from-sky-400 to-sky-900 text-white py-1 px-6 text-lg rounded-md mb-8">
-              Subscribe
-            </button>
+            <Link to ="/Inscription">Subscribe</Link></button>
+            
           </div>
           <div>
           <p>"Unlock unlimited access to your favorite movies and TV shows for just €7 a month or €60 a year! Subscribe now and never miss a moment of the action."</p>

@@ -11,16 +11,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.13",
-    "postcss": "^8.4.21",
-    "react": "^18.2.0",
-    "react-bootstrap": "^2.7.2",
-    "react-dom": "^18.2.0",
-    "react-icons": "^4.7.1",
     "@sefailyasoz/react-carousel": "^1.1.1",
     "@types/react-icons": "^3.0.0",
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.26",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",

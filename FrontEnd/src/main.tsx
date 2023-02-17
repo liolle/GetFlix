@@ -5,12 +5,12 @@ import App from './App'
 import './input.css'
 import './index.css'
 import { GlobalStyle }  from './styles/global';
-import {BrowserRouter} from "react-router-dom"
+
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <BrowserRouter>
+  <React.StrictMode>
   <GlobalStyle />
     <App />
-  </BrowserRouter>,
+  </React.StrictMode>
 )
 

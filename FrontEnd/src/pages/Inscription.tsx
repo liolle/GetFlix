@@ -56,8 +56,6 @@ function Inscription(){
       
     return (
 
-
-
 <div className = "min-h-screen py-40 bg-gradient-to-r from-sky-400 to-indigo-900">
     <div className = "container mx-auto">
         <div className = "flex flex-col md:flex-row lg:flex-row w-9/12 md:w-11/12 lg:w-8/12 bg-slate-300 rounded-xl mx-auto shadow-lg overflow-hidden">
