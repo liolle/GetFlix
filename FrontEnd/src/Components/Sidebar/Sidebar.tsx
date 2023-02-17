@@ -15,20 +15,20 @@ const Sidebar: React.FunctionComponent = () => {
 
     return (
         <>
-            <Navbar>
+            <Navbar className='bg-gradient-to-r from-sky-400 to-indigo-900'>
                 <MenuIconOpen to="#" onClick={showSidebar}>
                     <FaIcons.FaBars />
                 </MenuIconOpen>
             </Navbar>
 
-            <SidebarMenu close={close}>
-                <MenuIconClose to="#" onClick={showSidebar}>
+            <SidebarMenu className='bg-gradient-to-r from-sky-400 to-indigo-900'close={close}>
+                <MenuIconClose  to="#" onClick={showSidebar}>
                     <FaIcons.FaTimes />
                 </MenuIconClose>
 
                 {SidebarData.map((item, index) => {
                     return (
-                        <MenuItems key={index}>
+                        <MenuItems  key={index}>
                             <MenuItemLinks to={item.path}>
                                 {item.icon}
                                 <span style={{marginLeft: '16px'}}>{item.title}</span>
@@ -53,7 +53,7 @@ const Navbar = styled.div`
     justify-content: start;
     align-items: center;
     height: 3.5rem;
-    background-color: #000000;
+   
 `
 
 const MenuIconOpen = styled(Link)`
@@ -61,7 +61,7 @@ const MenuIconOpen = styled(Link)`
     justify-content: start;
     font-size: 1.5rem;
     margin-left: 2rem;
-    color: #FFCA03;
+    color: white;
 `
 
 const MenuIconClose = styled(Link)`
@@ -70,13 +70,13 @@ const MenuIconClose = styled(Link)`
     font-size: 1.5rem;
     margin-top: 0.75rem;
     margin-right: 1rem;
-    color: #FFCA03;
+    color: white;
 `
 
 const SidebarMenu = styled.div<{close: boolean}>`
     width: 250px;
     height: 100vh;
-    background-color: #000000;
+    color: white;
     position: fixed;
     top: 0;
     left: ${({ close}) => close ? '0' : '-100%'};
@@ -91,6 +91,7 @@ const MenuItems = styled.li`
     width: 100%;
     height: 90px;
     padding: 1rem 0 1.25rem;
+    color: white;
 `
 
 const MenuItemLinks = styled(Link)`
@@ -99,10 +100,10 @@ const MenuItemLinks = styled(Link)`
     padding: 0 2rem;
     font-size: 20px;
     text-decoration: none;
-    color: #FFCA03;
+    color: white;
 
     &:hover {
-        background-color: #FFCA03;
+        
        
         width: 100%;
         height: 45px;
