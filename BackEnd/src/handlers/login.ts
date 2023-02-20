@@ -125,7 +125,7 @@ const login = async (req: Request, res: Response): Promise<void> =>{
             tokenConnect(dbRes[0]['pwd'],req,res)
             
         } catch (error) {
-            
+            res.status(400).json({message: "Wrong Token"})
         }
     }
     else {
