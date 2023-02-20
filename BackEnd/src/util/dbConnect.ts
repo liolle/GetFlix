@@ -10,7 +10,7 @@ abstract class DbConnect {
     // dotenv.config();
    
     this.connection = createPool({
-        host: process.env.MYSQLHOST,
+        host: process.env.DATABASE_URL,
         user: process.env.MYSQLUSER,
         password: process.env.MYSQLPASSWORD,
         database: process.env.DATABASE,
