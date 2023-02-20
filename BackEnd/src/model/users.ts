@@ -73,8 +73,6 @@ export class User extends DbConnect {
                     reject(err['sqlMessage'])
                 }
 
-                console.log(err)
-                console.log(fields)
                 if (!rows) {
                     reject("no user found")
                 }
