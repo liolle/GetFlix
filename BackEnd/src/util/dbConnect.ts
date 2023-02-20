@@ -14,7 +14,7 @@ abstract class DbConnect {
         user: process.env.MYSQLUSER,
         password: process.env.MYSQLPASSWORD,
         database: process.env.MYSQLDATABASE,
-        port: parseInt(process.env.MYSQLPORT as string),
+        port: parseInt(process.env.PORT_NUM as string),
         connectionLimit :10,
         multipleStatements : true 
     });
