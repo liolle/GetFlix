@@ -13,7 +13,7 @@ abstract class DbConnect {
         host: process.env.MYSQLHOST,
         user: process.env.MYSQLUSER,
         password: process.env.MYSQLPASSWORD,
-        database: process.env.MYSQLDATABASE,
+        database: process.env.DATABASE,
         port: parseInt(process.env.PORT_NUM as string),
         connectionLimit :10,
         multipleStatements : true 
