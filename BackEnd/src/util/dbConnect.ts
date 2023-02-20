@@ -10,11 +10,11 @@ abstract class DbConnect {
     // dotenv.config();
    
     this.connection = createPool({
-        host: process.env.DATABASE_URL,
+        host: process.env.MYSQLHOST,
         user: process.env.MYSQLUSER,
         password: process.env.MYSQLPASSWORD,
         database: process.env.DATABASE,
-        port: parseInt(process.env.PORT_NUM as string),
+        port: parseInt(process.env.MYSQLPORT as string),
         connectionLimit :10,
         multipleStatements : true 
     });
