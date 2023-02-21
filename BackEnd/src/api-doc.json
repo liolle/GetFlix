@@ -239,7 +239,7 @@
       }
     },
     "/api/movies/select": {
-      "post": {
+      "get": {
         "summary": "clasic login .",
         "tags": [
           "Movies"
