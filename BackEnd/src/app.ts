@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import swaggerUi from "swagger-ui-express";
 import swaggerJsdoc from "swagger-jsdoc";
-
+import swaggerDocument from "./api-doc.json"
 /* Local imports */
 import config from './util/config';
 // const verifyJwt = require('./middlewares/verifyJwt')
@@ -25,10 +25,6 @@ const options = {
     apis: ['./src/**/*.ts'], // files containing annotations as above
   };
   
-  const openapiSpecification = swaggerJsdoc(options);
-dotenv.config()
-console.log(openapiSpecification)
-
 const app = express();
 app.use(express.json())
 app.use(cookieParser())
@@ -47,7 +43,7 @@ app.get('/hi', (req, res) => {
     res.send('Hello World!');
 });
 
-app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(openapiSpecification));
+app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/register',require('./routes/register.route'))
 
