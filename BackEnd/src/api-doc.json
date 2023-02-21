@@ -2,8 +2,8 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Sample API",
-    "description": "Simple movie API & users operations routes",
-    "version": "1.0.0"
+    "description": "Optional multiline or single-line description in [CommonMark](http://commonmark.org/help/) or HTML.",
+    "version": "0.1.9"
   },
   "servers": [
     {
@@ -15,7 +15,7 @@
       "post": {
         "summary": "Add user .",
         "tags": [
-          "Users"
+          "User"
         ],
         "requestBody": {
           "content": {
@@ -31,7 +31,8 @@
                   }
                 },
                 "required": [
-                  "email"
+                  "email",
+                  "pwd"
                 ]
               },
               "example": {
@@ -79,7 +80,7 @@
       "post": {
         "summary": "clasic login .",
         "tags": [
-          "Users"
+          "User"
         ],
         "requestBody": {
           "content": {
@@ -161,7 +162,7 @@
       "post": {
         "summary": "login with email .",
         "tags": [
-          "Users"
+          "User"
         ],
         "security": [
           {
@@ -236,22 +237,104 @@
           }
         }
       }
+    },
+    "/api/movies/select": {
+      "post": {
+        "summary": "clasic login .",
+        "tags": [
+          "Movies"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "types",
+            "schema": {
+              "type": "string"
+            },
+            "description": "comma séparated list of string representing the types of movies Ex.(action,thriller)"
+          },
+          {
+            "in": "query",
+            "name": "composition",
+            "schema": {
+              "type": "string"
+            },
+            "description": "way the query shoul group the result (AND / OR)"
+          },
+          {
+            "in": "query",
+            "name": "keyword",
+            "schema": {
+              "type": "string"
+            },
+            "description": "keyword we are looking for (in the title or description)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "movieId": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "videoLink": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "types": {
+                        "type": "string"
+                      },
+                      "views": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "movieId": 11,
+                  "name": "/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg",
+                  "videoLink": "https://www.youtube.com/watch?v=XsS1yE2f-hE",
+                  "title": "Star Wars",
+                  "description": "Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.",
+                  "types": "AdventureActionScience Fiction",
+                  "views": 0
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Issues",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
-  "tags": [
-    {
-      "name": "Users",
-      "description": "Everything about users"
-    },
-    {
-      "name": "Movies",
-      "description": "Movies"
-    },
-    {
-      "name": "Reviews",
-      "description": "Movies reviews"
-    }
-  ],
   "components": {
     "securitySchemes": {
       "bearerAuth": {
@@ -260,5 +343,19 @@
         "bearerFormat": "JWT"
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "User",
+      "description": "User operations"
+    },
+    {
+      "name": "Movies",
+      "description": "Movies operations"
+    },
+    {
+      "name": "Review",
+      "description": "Movies operations"
+    }
+  ]
 }
