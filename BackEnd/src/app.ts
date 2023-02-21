@@ -1,7 +1,6 @@
 /* Package imports */
 import express from 'express';
 import cookieParser from "cookie-parser";
-import dotenv from "dotenv";
 import cors from "cors";
 import swaggerUi from "swagger-ui-express";
 import swaggerJsdoc from "swagger-jsdoc";
@@ -38,16 +37,17 @@ app.use(cors());
     -register route 
 */
 
-
-app.get('/hi', (req, res) => {
-    res.send('Hello World!');
-});
-
 app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/register',require('./routes/register.route'))
 
 app.use('/login',require('./routes/login.route'))
+
+app.use('/api',require('./routes/api.route'))
+
+
+///api/movies/select? type=t1,t2,...&title=x&composition=union|inter&keyword=x
+
 /*
 app.use('/refresh',require('./routes/refresh'))
 app.use('/logout',require('./routes/logout'))
