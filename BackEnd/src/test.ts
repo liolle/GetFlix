@@ -1,9 +1,19 @@
 import {User} from "./model/users";
-
+import {Movies} from "./model/movie";
+require('dotenv').config()
 
 let user = new User("test2@test.com")
 
+let movie = new Movies(-1,"","","","","action,thriller")
 
+movie.findSelection("","")
+.then((data)=>{
+    console.log(data)
+
+})
+.catch((err)=>{
+    console.log(err)
+})
 
 /*
 
