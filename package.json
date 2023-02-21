@@ -1,0 +1,24 @@
+{
+  "name": "getflix",
+  "workspaces":[
+    "BackEnd",
+    "FrontEnd"],
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run dev --workspace=FrontEnd",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liolle/GetFlix.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liolle/GetFlix/issues"
+  },
+  "homepage": "https://github.com/liolle/GetFlix#readme"
+}
