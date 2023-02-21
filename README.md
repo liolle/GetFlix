@@ -2,10 +2,13 @@
 
 ### Team
 
-Alex: https://github.com/atsoakalex
-Billal: https://github.com/Bilallamrani
-Yves: https://github.com/yvsmlk
-Etienne: https://github.com/liolle
+- [Alex](https://github.com/atsoakalex)
+
+- [Billal](https://github.com/Bilallamrani)
+
+- [Yves](https://github.com/yvsmlk)
+
+- [Etienne](https://github.com/liolle)
 
 ### Description
 
