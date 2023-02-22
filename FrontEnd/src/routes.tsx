@@ -10,11 +10,11 @@ import Inscription from "./pages/Inscription"
 import Login from "./pages/Login"
 import Payement from "./pages/Payement"
 import Footer from "./Components/Footer/Footer"
-import ReactCardSlider from './Components/ReactCardSlider/ReactCardSlider';
+import Responsive from './Components/ReactCardSlider/ReactCardSlider';
+import ImageProps from "./Components/Gallery/Image"
 
 export function routes() {
   return <Routes>
-
     <Route path='/' element={<LandingPage />} />
     <Route path='/home' element={<Home />} />
     <Route path='/Inscription' element={<Inscription />} /> 
@@ -25,7 +25,8 @@ export function routes() {
     <Route path='/Catégories' element={<Categories />} />
     <Route path='/Films' element={<Films />} />
     <Route path='/Paramètres' element={<Parametres />} />
-    <Route path='/ReactCardSlider' element={<ReactCardSlider />} />
-    
+    <Route path='/ReactCardSlider' element={<Responsive />} />
+    <Route path= '/Test' element={<ImageProps title="blade runner" />}/>
+
   </Routes>;
 }

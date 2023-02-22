@@ -5,7 +5,7 @@ import "./ReactCardSlider.css"
 
 
 
-export default class Responsive extends Component {
+ class Responsive extends Component {
   render() {
 
     const PrevArrow = (props) => {
@@ -142,3 +142,4 @@ export default class Responsive extends Component {
     );
   }
 }
+export default Responsive

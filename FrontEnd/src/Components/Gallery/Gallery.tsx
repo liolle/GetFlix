@@ -6,6 +6,9 @@ import myImage4 from '../images/myImage4.jpg'
 import myImage5 from '../images/myImage5.jpg'
 import myImage6 from '../images/myImage6.jpg'
 function Gallery() {
+
+  
+
   return (
     <section className="overflow-hidden text-gray-700">
     <div className="container px-5 py-2 mx-auto lg:pt-24 lg:px-32">
