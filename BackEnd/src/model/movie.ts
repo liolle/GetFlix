@@ -93,6 +93,29 @@ export class Movies extends DbConnect {
 
     }
 
+    async findRandom(n:number):Promise<any>{
+
+        return new Promise<any>((resolve, reject) => {
+            
+            let sql = `SELECT * FROM movies 
+            ORDER BY RAND ( )  
+            LIMIT ${Math.sqrt(n*n)} `
+            
+            this.connection.query(sql, (err:any, rows:[], fields:any)=>{
+                if (err ){
+                    reject(err['sqlMessage'])
+                }
+
+                if (!rows) {
+                    reject("no movies found")
+                }
+
+                resolve(rows)
+            })
+        })
+
+    }
+
     async create(pwd:string):Promise<boolean|string>{
         return new Promise<boolean|string>((resolve, reject) => {
             resolve("TODO")

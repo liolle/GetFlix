@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: WP1 \" ",
     "dev": "npx nodemon src/app.ts ",
-    "tsTest": " ts-node src/test.ts",
+    "tsTest": " npx nodemon src/test.ts",
     "start": "npx ts-node src/app.ts"
   },
   "keywords": [],

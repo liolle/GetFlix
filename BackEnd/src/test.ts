@@ -6,7 +6,7 @@ let user = new User("test2@test.com")
 
 let movie = new Movies(-1,"","","","","action,thriller")
 
-movie.findSelection("","")
+movie.findRandom(5)
 .then((data)=>{
     console.log(data)
 
@@ -16,6 +16,15 @@ movie.findSelection("","")
 })
 
 /*
+movie.findSelection("","")
+.then((data)=>{
+    console.log(data)
+
+})
+.catch((err)=>{
+    console.log(err)
+})
+
 
 user.create("test")
 .then((data)=>{
