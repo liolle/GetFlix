@@ -11,9 +11,14 @@ const HomeText = styled.div`
 `
 
 const Home: React.FunctionComponent = () => {
+
+
+
     return (
         <HomeText>Home</HomeText>
+
     )
 }
 
 export default Home
+
