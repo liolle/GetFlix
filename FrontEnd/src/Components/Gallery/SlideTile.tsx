@@ -85,11 +85,11 @@ const SlideImgDivTitle = ({n,timeoutRange,type}:Props)=>{
     //Math.floor(Math.random()*max) + min
     return (
         
-        <div className=' w-full h-full  relative '>
             <img className="block object-cover object-center w-full h-full rounded-lg" src={m_img[idx]} alt=''></img>
+        // <div className=' w-full h-full  relative '>
             
-            {/* <span className=' text-black font-bold text-2xl absolute '>{m_title[idx]}</span> */}
-        </div>
+        //     {/* <span className=' text-black font-bold text-2xl absolute '>{m_title[idx]}</span> */}
+        // </div>
         
     )
     
