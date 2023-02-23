@@ -13,6 +13,7 @@ import sectionImage from '../images/sectionImage.png'
 // import myImage6 from '../images/myImage6.jpg'
 
 import SlideImgDiv from "../Components/Gallery/SlideImgDiv"
+import SlideImgDivTitle from "../Components/Gallery/SlideTile"
 
 //<SlideImgDiv n={5} timeoutRange={[5000,10000]} />
 
@@ -55,24 +56,24 @@ const LandingPage: React.FunctionComponent = () => {
     <div className="flex flex-wrap -m-1 md:-m-2">
       <div className="flex flex-wrap w-1/2">
         <div className="w-1/2 p-1 md:p-2">
-          <SlideImgDiv n={3} timeoutRange={[8000,12000]} />
+          <SlideImgDivTitle n={7} timeoutRange={[10000,15000]} type="action" />
         </div>
         <div className="w-1/2 p-1 md:p-2">
-          <SlideImgDiv n={3} timeoutRange={[8000,12000]} />
+          <SlideImgDivTitle n={7} timeoutRange={[10000,15000]} type="Horror" />
         </div>
         <div className="w-full p-1 md:p-2">
-          <SlideImgDiv n={5} timeoutRange={[15000,25000]} />
+          <SlideImgDivTitle n={7} timeoutRange={[10000,15000]} type="Science Fiction" />
         </div>
       </div>
       <div className="flex flex-wrap w-1/2">
         <div className="w-full p-1 md:p-2">
-          <SlideImgDiv n={5} timeoutRange={[15000,25000]} />
+          <SlideImgDivTitle n={7} timeoutRange={[10000,15000]} type="Comedy" />
         </div>
         <div className="w-1/2 p-1 md:p-2">
-          <SlideImgDiv n={5} timeoutRange={[8000,12000]} />
+          <SlideImgDivTitle n={7} timeoutRange={[8000,12000]} type="Animation" />
         </div>
         <div className="w-1/2 p-1 md:p-2">
-          <SlideImgDiv n={5} timeoutRange={[8000,12000]} />
+          <SlideImgDivTitle n={7} timeoutRange={[8000,12000]} type="Drama" />
         </div>
       </div>
     </div>
