@@ -45,8 +45,8 @@ const LandingPage: React.FunctionComponent = () => {
         </div>
        
       </section>
-      <section className=" text-white text-xl font-bold mb-8 bg-gradient-to-r from-black bg-slate-400 text-gray-700">
-        <div className='flex justify-center text-2xl font-bold px-8 py-10'>
+      <section className="overflow-hidden text-white text-xl font-bold mb-8 bg-black bg-gradient-to-r from-black  ">
+        <div className='px-8 py-10'>
           <h1>Our diverse and exclusive selection of movies!"</h1>
         </div>
   <div className="container px-5 py-2 mx-auto lg:pt-24 lg:px-32">
