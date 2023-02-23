@@ -10,7 +10,7 @@ import Inscription from "./pages/Inscription"
 import Login from "./pages/Login"
 import Payement from "./pages/Payement"
 import Footer from "./Components/Footer/Footer"
-import ReactCardSlider from './Components/ReactCardSlider/ReactCardSlider';
+import ReactCardSlider from "./Components/ReactCardSlider/ReactCardSlider";
 
 export function routes() {
   return <Routes>

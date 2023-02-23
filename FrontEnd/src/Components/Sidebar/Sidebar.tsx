@@ -18,6 +18,7 @@ const Sidebar: React.FunctionComponent = () => {
             <Navbar className='bg-gradient-to-r from-sky-400 to-indigo-900'>
                 <MenuIconOpen to="#" onClick={showSidebar}>
                     <FaIcons.FaBars />
+                    
                 </MenuIconOpen>
             </Navbar>
 

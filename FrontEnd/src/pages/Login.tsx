@@ -1,26 +1,45 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
+
 
 function Login (){
 
         const [Email, setEmail] = useState('')
         const [Password, setPassword] = useState('')
-
         const [formError, setFormError] = useState('')
-       
-    
-        // const [isSubmitted, setIsSubmitted] = useState(false)
-    
+
+    // const location = useLocation()
         const handleSubmit = (e: any) => {
             e.preventDefault()
             if (!Email || !Password) {
               setFormError('Please fill in all fields.')
-            }else {
-              setFormError('')
-              console.log("Formulaire envoyé");
-              // setIsSubmitted(true)
+            }else { 
+              setFormError('') 
+              console.log("Formulaire envoyé"); 
+              // setIsSubmitted(true)   
             }
-          
           }
+
+          const url = "https://getflix-production-8eb4.up.railway.app/login"
+
+
+
+          fetch(url, {
+            method: "POST",
+            body: JSON.stringify({
+              email: Email,
+              pwd: Password
+            }),
+
+            headers: {
+              "Content-Type" : "application/json"
+            }
+            }).then((response) => response.json())
+            .then((data) => {
+              console.log(data)
+              // doit changer location via rezct router dom with useHistory or useLocztion 
+              // token 
+              // location.push('/ReactCardSlider' token: 65765864646747)
+            } ).catch(e => console.log(e.message))
 
     return (
         <div className = "min-h-screen py-40 bg-gradient-to-r from-sky-400 to-indigo-900">
@@ -62,4 +81,4 @@ function Login (){
     )
     }
 
-export default Login;
+export default Login; 
