@@ -15,7 +15,7 @@ abstract class DbConnect {
         password: process.env.MYSQLPASSWORD,
         database: process.env.DATABASE,
         port: parseInt(process.env.MYSQLPORT as string),
-        connectionLimit :40,
+        connectionLimit :100,
         multipleStatements : true 
     });
     // console.log(`Connected to ${process.env.DATABASE} on Port ${parseInt(process.env.PORT_NUM as string)}`)
