@@ -10,7 +10,10 @@ import Inscription from "./pages/Inscription"
 import Login from "./pages/Login"
 import Payement from "./pages/Payement"
 import Footer from "./Components/Footer/Footer"
-import ReactCardSlider from "./Components/ReactCardSlider/ReactCardSlider";
+import ReactCarouselSlider from "./Components/ReactCarouselSlider/ReactCarouselSlider"
+import MovieCarousel from './Components/MovieCarousel/MovieCarousel';
+import ReactCardSlider from './Components/ReactCardSlider/ReactCardSlider';
+
 
 export function routes() {
   return <Routes>
@@ -25,6 +28,8 @@ export function routes() {
     <Route path='/Catégories' element={<Categories />} />
     <Route path='/Films' element={<Films />} />
     <Route path='/Paramètres' element={<Parametres />} />
+   <Route path='/ReactCarouselSlider' element={< ReactCarouselSlider />}/>
+   <Route path='/MovieCarousel' element={< MovieCarousel />}/>  
     <Route path='/ReactCardSlider' element={<ReactCardSlider />} />
     
   </Routes>;
