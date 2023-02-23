@@ -240,7 +240,7 @@
     },
     "/api/movies/select": {
       "get": {
-        "summary": "clasic login .",
+        "summary": "select movie basec ont type, title or keyword .",
         "tags": [
           "Movies"
         ],
@@ -268,6 +268,14 @@
               "type": "string"
             },
             "description": "keyword we are looking for (in the title or description)"
+          },
+          {
+            "in": "query",
+            "name": "title",
+            "schema": {
+              "type": "string"
+            },
+            "description": "title of the movie (will overule every other parameters)"
           }
         ],
         "responses": {
@@ -300,23 +308,122 @@
                       },
                       "views": {
                         "type": "integer"
-                      },
-                      "image": {
-                        "type": "string"
                       }
                     }
                   }
                 },
-                "example": {
-                  "movieId": 11,
-                  "name": "/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg",
-                  "videoLink": "https://www.youtube.com/watch?v=XsS1yE2f-hE",
-                  "title": "Star Wars",
-                  "description": "Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.",
-                  "types": "AdventureActionScience Fiction",
-                  "views": 0,
-                  "image": "https://image.tmdb.org/t/p/w500/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg"
+                "example": [
+                  {
+                    "movieId": 11,
+                    "name": "/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg",
+                    "videoLink": "https://www.youtube.com/watch?v=XsS1yE2f-hE",
+                    "title": "Star Wars",
+                    "description": "Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.",
+                    "types": "AdventureActionScience Fiction",
+                    "views": 0
+                  }
+                ]
+              }
+            }
+          },
+          "500": {
+            "description": "Server Issues",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
                 }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/movies/types": {
+      "get": {
+        "summary": "list of film types .",
+        "tags": [
+          "Movies"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "example": [
+                  "action",
+                  "horror"
+                ]
+              }
+            }
+          },
+          "500": {
+            "description": "Server Issues",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/movies/random": {
+      "get": {
+        "summary": "list of random movies .",
+        "tags": [
+          "Movies"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "n",
+            "schema": {
+              "type": "string"
+            },
+            "description": "number of movies to returm (1 by default)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "example": [
+                  {
+                    "movieId": 11,
+                    "name": "/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg",
+                    "videoLink": "https://www.youtube.com/watch?v=XsS1yE2f-hE",
+                    "title": "Star Wars",
+                    "description": "Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.",
+                    "types": "AdventureActionScience Fiction",
+                    "views": 0
+                  }
+                ]
               }
             }
           },
