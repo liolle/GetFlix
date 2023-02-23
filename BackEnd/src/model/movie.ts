@@ -124,7 +124,9 @@ export class Movies extends DbConnect {
     }
 
     createFilter(composition = "",keyword = ""){
-        let sql_request = "SELECT * FROM movies "
+        let sql_request = `SELECT * FROM movies
+        LIMIT 50
+        `
     
         let title = this.title
         let types = this.types
@@ -163,9 +165,8 @@ export class Movies extends DbConnect {
             sql_request += `WHERE (${filter})`;
             
         }
-        else{
-            sql_request += `LIMIT 30`
-        }
+        
+        sql_request += `LIMIT 50`
 
         return sql_request;
     }
