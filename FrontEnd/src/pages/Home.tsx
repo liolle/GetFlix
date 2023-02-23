@@ -7,6 +7,7 @@ import CarouselComponent from '../Components/ReactCarouselSlider/ReactCarouselSl
 
 
 const Home: React.FunctionComponent = () => {
+<<<<<<< HEAD
   
     return (
      <section className="relative bg-gradient-to-r from-black">
@@ -15,6 +16,14 @@ const Home: React.FunctionComponent = () => {
    
      </section>
       
+=======
+
+
+
+    return (
+        <HomeText>Home</HomeText>
+
+>>>>>>> front
     )
 }
 

@@ -26,8 +26,12 @@
     "react-router-dom": "^6.8.1",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
+<<<<<<< HEAD
     "styled-components": "^5.3.6",
     "swiper": "^9.0.5"
+=======
+    "styled-components": "^5.3.6"
+>>>>>>> front
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
