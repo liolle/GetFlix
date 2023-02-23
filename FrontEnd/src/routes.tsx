@@ -12,6 +12,7 @@ import Payement from "./pages/Payement"
 import Footer from "./Components/Footer/Footer"
 import Responsive from './Components/ReactCardSlider/ReactCardSlider';
 import ImageProps from "./Components/Gallery/Image"
+import SlideImgDiv from "./Components/Gallery/SlideImgDiv"
 
 export function routes() {
   return <Routes>
@@ -26,7 +27,8 @@ export function routes() {
     <Route path='/Films' element={<Films />} />
     <Route path='/Paramètres' element={<Parametres />} />
     <Route path='/ReactCardSlider' element={<Responsive />} />
-    <Route path= '/Test' element={<ImageProps title="blade runner" />}/>
+    {/* <Route path= '/Test' element={<ImageProps title="blade runner" />}/> */}
+    <Route path= '/Test' element={<SlideImgDiv n={5} timeoutRange={[5000,10000]} />}/>
 
   </Routes>;
 }

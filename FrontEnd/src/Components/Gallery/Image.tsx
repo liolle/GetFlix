@@ -10,15 +10,11 @@ const getMovieInfo = async (title:string,setLink:React.Dispatch<React.SetStateAc
         
         let response = await fetch(URL)
         let data = await response.json()
-        console.log("---")
         if (data) setLink(data[0]['image']) 
-        // setLink("")
         
     } catch (error) {
         setLink("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT764zmud8dIimZgJT_710NiVqOE1rw15nZfw&usqp=CAU")
     }
-    
-    
 }
 
 type Props = {
@@ -32,7 +28,6 @@ type Props = {
         console.log(title,imageLink)
         getMovieInfo(title, setLink);
     } 
-    console.log("IN_COMPONENT: ",Date.now())
     return (
       <LazyLoadImage
         effect='opacity'
