@@ -32,6 +32,7 @@ const getSelection = async (req: Request, res: Response): Promise<void> =>{
         return 
         
     } catch (error) {
+        console.log(error)
         res.status(500).json({message: "Internal Server Error"})
         return
     }

@@ -21,6 +21,7 @@ const getRandom = async (req: Request, res: Response) =>{
         return 
         
     } catch (error) {
+        console.log(error)
         res.status(500).json({message: "Internal Server Error"})
         return
     }

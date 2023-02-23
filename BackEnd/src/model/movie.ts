@@ -64,7 +64,7 @@ export class Movies extends DbConnect {
                 } 
                 
             } catch (error) {
-                
+                console.log(error)
                 reject(error)
             }
             
@@ -80,6 +80,7 @@ export class Movies extends DbConnect {
             
             this.connection.query(sql, (err:any, rows:[], fields:any)=>{
                 if (err ){
+                    console.log(err)
                     reject(err['sqlMessage'])
                 }
 
@@ -124,9 +125,7 @@ export class Movies extends DbConnect {
     }
 
     createFilter(composition = "",keyword = ""){
-        let sql_request = `SELECT * FROM movies
-        LIMIT 50
-        `
+        let sql_request = `SELECT * FROM movies `
     
         let title = this.title
         let types = this.types
@@ -194,6 +193,7 @@ export class Movies extends DbConnect {
             
             this.connection.query(sql, (err:any, rows:any, fields:any)=>{
                 if (err){
+                    console.log(err)
                     reject(err['sqlMessage'])
                 }
                 resolve(true)
