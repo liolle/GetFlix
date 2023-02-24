@@ -28,7 +28,7 @@ export function routes() {
     <Route path='/Catégories' element={<Categories />} />
     <Route path='/Films' element={<Films />} />
     <Route path='/Paramètres' element={<Parametres />} />
-   <Route path='/ReactCarouselSlider' element={< ReactCarouselSlider />}/>
+    <Route path='/ReactCarouselSlider' element={< ReactCarouselSlider />}/>
    <Route path='/MovieCarousel' element={< MovieCarousel />}/>  
     <Route path='/ReactCardSlider' element={<ReactCardSlider />} />
     
