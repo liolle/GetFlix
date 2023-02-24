@@ -14,7 +14,7 @@ const CarouselComponent: React.FC = () => {
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const response = await axios.get<Movie[]>('https://getflix-production-8eb4.up.railway.app/api/movies/random?n=10');
+      const response = await axios.get<Movie[]>('https://getflix-production-8eb4.up.railway.app/api/movies/random?n=13');
       setMovies(response.data);
     };
     fetchMovies();
