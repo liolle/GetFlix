@@ -16,6 +16,7 @@ import ReactCardSlider from './Components/ReactCardSlider/ReactCardSlider'
 import MoviePage from './Components/MoviePage/MoviePage'
 import Watch from './pages/Watch';
 import Preview from './pages/Preview';
+import ProfilePage from './Components/ProfilePage/ProfilePage';
 
 
 
