@@ -6,9 +6,10 @@ import * as FaIcons from 'react-icons/fa'
 
 import { IoLogoVimeo } from "react-icons/io";
 import { SidebarData } from './SidebarData'
-
+import { searchBar } from '../Search/search'
 import styled from 'styled-components'
 import { useState } from 'react'
+
 
 const Sidebar: React.FunctionComponent = () => {
     const [close, setClose] = useState(false)
@@ -17,10 +18,12 @@ const Sidebar: React.FunctionComponent = () => {
     return (
         <>
             <Navbar style={{ zIndex: 100 }} className="">
-             
+             { searchBar ()}
                 <MenuIconOpen to="#" onClick={showSidebar}>
+                        
                     <div><IoLogoVimeo /></div> 
                     <FaIcons.FaUser />
+                    
                     <FaIcons.FaBars />
                     
                 </MenuIconOpen>

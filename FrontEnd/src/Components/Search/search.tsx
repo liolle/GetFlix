@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { FaSearch } from 'react-icons/fa';
 
-function SearchBar() {
+
+  export const searchBar: React.FC = () => {
+
   const [searchText, setSearchText] = useState('');
 
   const handleSearch = (event:any) => {
@@ -14,11 +17,16 @@ function SearchBar() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" value={searchText} onChange={handleSearch} placeholder="Recherche" />
-      <button type="submit">Rechercher</button>
+    <form onSubmit={handleSubmit} className="ml-100">
+      <div className="relative items-center">
+      <input type="text" value={searchText} onChange={handleSearch} placeholder="Search..." className="py-1 pl-10 rounded-full bg-gray-100 focus:outline-none focus:bg-white focus:shadow-outline" />
+      <div className="absolute inset-y-0 left-0 flex items-center pl-3">
+          <FaSearch className="text-gray-500" />
+      </div>
+      <button type="submit" className="hidden"></button>
+      </div>
     </form>
   );
 }
 
-export default SearchBar;
+export default searchBar;

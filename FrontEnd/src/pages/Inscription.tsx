@@ -56,7 +56,7 @@ function Inscription(){
       
     return (
 
-<div className = "min-h-screen py-40 bg-gradient-to-r from-sky-400 to-indigo-900">
+<div className = "min-h-screen py-40 bg-black">
     <div className = "container mx-auto">
         <div className = "flex flex-col md:flex-row lg:flex-row w-9/12 md:w-11/12 lg:w-8/12 bg-slate-300 rounded-xl mx-auto shadow-lg overflow-hidden">
             <div className = "w-full lg:w-1/2 flex flex-col items-center justify-center p-12 bg-no-repeat bg-cover bg-center" style ={{ backgroundImage: `url(https://swsca-production.s3.amazonaws.com/ckeditor_assets/2020/03/19/dmoy01.jpg)` }}>
@@ -85,10 +85,10 @@ function Inscription(){
                 </div>
                 <div className="mt-5">
                    <input type="checkbox" name="checkbox" onChange={handleCheckBoxChange} className="border border-gray-400" />
-                    <span> I accept the <a href="#" className="text-purple-500 font-semibold"> Terms of Use</a> & <a href="#" className="text-purple-500 font-semibold">Privacy Policy</a></span>
+                    <span> I accept the <a href="#" className="bg-gradient-to-r from-sky-400 to-sky-900 font-semibold"> Terms of Use</a> & <a href="#" className="bg-gradient-to-r from-sky-400 to-sky-900 font-semibold">Privacy Policy</a></span>
                 </div>
                 <div className="mt-5">
-                    <button type="submit" className="w-full bg-purple-500 py-3 text-center text-white"><Link to="/Payement">Register Now</Link></button>
+                    <button type="submit" className="w-full bg-gradient-to-r from-sky-400 to-sky-900 py-3 text-center text-white"><Link to="/Payement">Register Now</Link></button>
                 </div>
             </form>
             

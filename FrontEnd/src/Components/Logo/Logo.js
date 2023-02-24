@@ -9,7 +9,7 @@ function Logo() {
   );
 }
 
-export default logo
+export default Logo
 
 
 
