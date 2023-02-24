@@ -1,6 +1,6 @@
 
 import React from 'react'
-
+import Sidebar from '../Components/Sidebar/Sidebar'
 import Faq from '../Components/FAQ/Faq'
 import {Link} from 'react-router-dom'
 import Footer from '../Components/Footer/Footer'
@@ -14,7 +14,7 @@ import myImage6 from '../images/myImage6.jpg'
 
 
 
-const LandingPage: React.FunctionComponent = () => {
+const LandingPage = () => {
 
   const backgroundImageStyle = {
     backgroundImage: `url("${sectionImage}")`,
@@ -22,7 +22,10 @@ const LandingPage: React.FunctionComponent = () => {
   };
 
   return (
-    <>
+
+    <div className=' w-screen '>
+
+
       <section className="text-white grid grid-cols-1 gap-4" style={backgroundImageStyle}>
         <div className="bg-gradient-to-r from-black px-8 py-16 max-w-md">
           <div className="logo"></div>
@@ -36,58 +39,60 @@ const LandingPage: React.FunctionComponent = () => {
           </div>
           <div>
             <button className="bg-gradient-to-r  from-sky-400 to-sky-900 text-white py-1 px-6 text-lg rounded-md mb-8">
-            <Link to ="/Inscription">Subscribe</Link></button>
+            <Link to ="/Inscription">Register</Link></button>
             
           </div>
           <div>
           <p>"Unlock unlimited access to your favorite movies and TV shows for just €7 a month or €60 a year! Subscribe now and never miss a moment of the action."</p>
         </div>
         </div>
-       
       </section>
+
+      
       <section className="overflow-hidden text-white text-xl font-bold mb-8 bg-black bg-gradient-to-r from-black  ">
         <div className='px-8 py-10'>
           <h1>Our diverse and exclusive selection of movies!"</h1>
         </div>
-  <div className="container px-5 py-2 mx-auto lg:pt-24 lg:px-32">
-    <div className="flex flex-wrap -m-1 md:-m-2">
-      <div className="flex flex-wrap w-1/2">
+
+        <div className="container px-5 py-2 mx-auto lg:pt-24 lg:px-32">
+          <div className="flex flex-wrap -m-1 md:-m-2">
+            <div className="flex flex-wrap w-1/2">
+              <div className="w-1/2 p-1 md:p-2">
+                <img
+                  alt="gallery"
+                  className="block object-cover object-center w-full h-full rounded-lg"
+                  src={myImage1}
+                />
+              </div>
+            <div className="w-1/2 p-1 md:p-2">
+              <img
+                alt="gallery"
+                className="block object-cover object-center w-full h-full rounded-lg"
+                src={myImage2}
+              />
+            </div>
+          <div className="w-full p-1 md:p-2">
+            <img
+              alt="gallery"
+              className="block object-cover object-center w-full h-full rounded-lg"
+              src={myImage3}
+            />
+          </div>
+        </div>
+        <div className="flex flex-wrap w-1/2">
+          <div className="w-full p-1 md:p-2">
+            <img
+              alt="gallery"
+              className="block object-cover object-center w-full h-full rounded-lg"
+              src={myImage4}
+            />
+          </div>
         <div className="w-1/2 p-1 md:p-2">
-          <img
-            alt="gallery"
-            className="block object-cover object-center w-full h-full rounded-lg"
-            src={myImage1}
-          />
-        </div>
-        <div className="w-1/2 p-1 md:p-2">
-          <img
-            alt="gallery"
-            className="block object-cover object-center w-full h-full rounded-lg"
-            src={myImage2}
-          />
-        </div>
-        <div className="w-full p-1 md:p-2">
-          <img
-            alt="gallery"
-            className="block object-cover object-center w-full h-full rounded-lg"
-            src={myImage3}
-          />
-        </div>
-      </div>
-      <div className="flex flex-wrap w-1/2">
-        <div className="w-full p-1 md:p-2">
-          <img
-            alt="gallery"
-            className="block object-cover object-center w-full h-full rounded-lg"
-            src={myImage4}
-          />
-        </div>
-        <div className="w-1/2 p-1 md:p-2">
-          <img
-            alt="gallery"
-            className="block object-cover object-center w-full h-full rounded-lg"
-            src={myImage5}
-          />
+            <img
+              alt="gallery"
+              className="block object-cover object-center w-full h-full rounded-lg"
+              src={myImage5}
+            />
         </div>
         <div className="w-1/2 p-1 md:p-2">
           <img
@@ -101,29 +106,10 @@ const LandingPage: React.FunctionComponent = () => {
   </div>
   <Faq/>
   <Footer/>
-</section>
+  </section> 
+  </div>
+    
 
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</>
   )
 }
 

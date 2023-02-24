@@ -1,17 +1,19 @@
 
 import React, { useState } from "react"
-import ReactDOM from 'react-dom/client'
+import ReactDOM from 'react-dom'
 import App from './App'
 import './input.css'
 import './index.css'
 import { GlobalStyle }  from './styles/global';
 
+import { BrowserRouter  } from 'react-router-dom';
 
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-  <GlobalStyle />
+
+ReactDOM.render(
+  <BrowserRouter>
     <App />
-  </React.StrictMode>
+  </BrowserRouter>,
+  document.getElementById("root")
 )
 
