@@ -12,7 +12,7 @@ import "./ReactCardSlider.css"
       const { className, onClick } = props;
       return (
         <button
-          className={`${className} rounded-full text-red p-4 focus:outline-none left-0 top-1/2 transform -translate-y-1/2 z-10`}
+          className={`${className}  bg-black rounded-full text-red p-4 focus:outline-none left-0 top-1/2 transform -translate-y-1/2 z-10`}
           onClick={onClick}
         >
           <FaChevronLeft size={50} />
@@ -70,7 +70,7 @@ import "./ReactCardSlider.css"
     };
     return (
       
-      <div className = "pb-8 bg-gradient-to-r from-black bg-slate-400 text-gray-700">
+      <div className = "pb-8 bg-black">
       <div className="card">
           <span className="flex text-3xl sm:text-xl md:text-3xl lg:text-4xl ml-3 font-bold pb-5 pt-5 text-white">Action movies</span>
 

@@ -14,6 +14,8 @@ interface Movie {
   image: string;
 }
 
+
+
 const MovieCarousel: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
 
