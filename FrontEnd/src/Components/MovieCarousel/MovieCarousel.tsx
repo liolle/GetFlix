@@ -18,7 +18,7 @@ const MovieCarousel: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
-    axios.get('https://getflix-production-8eb4.up.railway.app/api/movies/random?n=10')
+    axios.get<Movie[]>('https://getflix-production-8eb4.up.railway.app/api/movies/random?n=10')
       .then(response => {
         setMovies(response.data);
       })
@@ -30,7 +30,7 @@ const MovieCarousel: React.FC = () => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 4,
+      items: 3,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -43,18 +43,23 @@ const MovieCarousel: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className='bg-black text-white mr-4'>
       <Carousel
         responsive={responsive}
         showDots={true}
         infinite={true}
         autoPlay={true}
-        autoPlaySpeed={3000}
+        autoPlaySpeed={4000}
       >
         {movies.map(movie => (
-          <div key={movie.movieId}>
+          <div key={movie.movieId} className="relative">
             <a href={movie.videoLink}>
               <img src={movie.image} alt={movie.title} />
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <button className="w-16 h-16 rounded-full bg-skyblue flex items-center justify-center">
+                  <i className="fa fa-play text-white"></i>
+                </button>
+              </div>
             </a>
             <h3>{movie.title}</h3>
             <p>{movie.description}</p>
@@ -65,6 +70,8 @@ const MovieCarousel: React.FC = () => {
   );
 };
 
-export default MovieCarousel;
+export default MovieCarousel
+
+
 
 

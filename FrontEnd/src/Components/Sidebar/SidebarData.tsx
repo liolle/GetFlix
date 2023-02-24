@@ -12,19 +12,15 @@ export const SidebarData = [
         path: '/Profile',
         icon: <FaIcons.FaUser />
     },
+   
     {
-        title: 'Catégorie',
-        path: '/Catégorie',
-        icon: <FaIcons.FaList />
-    },
-    {
-        title: 'Films',
+        title: 'Watch',
         path: '/Films',
         icon: <FaIcons.FaFilm />
     },
     {
-        title: 'Paramètres',
+        title: 'Preview',
         path: '/Paramètres',
-        icon: <FaIcons.FaWrench/>
+        icon: <FaIcons.FaList/>
     }
 ]

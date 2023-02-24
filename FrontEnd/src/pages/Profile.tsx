@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import ProfilePage from '../Components/ProfilePage/ProfilePage'
 
 const ProfileText = styled.div`
     display: flex;
@@ -11,7 +12,7 @@ const ProfileText = styled.div`
 
 const Profile: React.FunctionComponent = () => {
     return (
-        <ProfileText>Profile</ProfileText>
+       <ProfilePage/>
     )
 }
 

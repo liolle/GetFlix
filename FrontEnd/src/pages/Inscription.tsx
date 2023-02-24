@@ -85,7 +85,7 @@ function Inscription(){
                 </div>
                 <div className="mt-5">
                    <input type="checkbox" name="checkbox" onChange={handleCheckBoxChange} className="border border-gray-400" />
-                    <span> I accept the <a href="#" className="bg-gradient-to-r from-sky-400 to-sky-900 font-semibold"> Terms of Use</a> & <a href="#" className="bg-gradient-to-r from-sky-400 to-sky-900 font-semibold">Privacy Policy</a></span>
+                    <span> I accept the <a href="#" className="font-semibold"> Terms of Use</a> & <a href="#" className=" font-semibold">Privacy Policy</a></span>
                 </div>
                 <div className="mt-5">
                     <button type="submit" className="w-full bg-gradient-to-r from-sky-400 to-sky-900 py-3 text-center text-white"><Link to="/Payement">Register Now</Link></button>

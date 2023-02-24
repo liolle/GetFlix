@@ -72,6 +72,9 @@ function Login (){
                     <div>
                       <span> First time visit on Visualize ? <a href="/" className="bg-gradient-to-r from-sky-400 to-sky-900 font-semibold">Sign up</a></span>
                     </div>
+                    <div>
+                      <span> First time visit on Visualize ? <a href="/" className="font-semibold">Sign up</a></span>
+                    </div>
                 </form>
                 
               </div>
