@@ -20,7 +20,7 @@ abstract class DbConnect {
         multipleStatements: true 
     });
     // console.log(`Connected to ${process.env.DATABASE} on Port ${parseInt(process.env.PORT_NUM as string)}`)
-    this.connection.
+    
   }
 
   abstract findAll(...params:any):Promise<any>;
