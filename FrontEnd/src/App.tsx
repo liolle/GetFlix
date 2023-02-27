@@ -11,13 +11,13 @@ const App: React.FunctionComponent = () => {
   return (
   
     <>
-      <Router> 
+      
 
       <Sidebar/> 
           
         {routes()}
         
-      </Router> 
+      
       
     </>
   )

@@ -56,24 +56,24 @@ const LandingPage: React.FunctionComponent = () => {
     <div className="flex flex-wrap -m-1 md:-m-2">
       <div className="flex flex-wrap w-1/2">
         <div className="w-1/2 p-1 md:p-2">
-          <SlideImgDivTitle n={7} timeoutRange={[10000,15000]} type="action" />
+          <SlideImgDiv n={7} timeoutRange={[5,10]} />
         </div>
         <div className="w-1/2 p-1 md:p-2">
-          <SlideImgDivTitle n={7} timeoutRange={[10000,15000]} type="Horror" />
+          <SlideImgDiv n={7} timeoutRange={[5,10]} />
         </div>
         <div className="w-full p-1 md:p-2">
-          <SlideImgDivTitle n={7} timeoutRange={[10000,15000]} type="Science Fiction" />
+          <SlideImgDiv n={7} timeoutRange={[10,15]}  />
         </div>
       </div>
       <div className="flex flex-wrap w-1/2">
         <div className="w-full p-1 md:p-2">
-          <SlideImgDivTitle n={7} timeoutRange={[10000,15000]} type="Comedy" />
+          <SlideImgDiv n={7} timeoutRange={[10,15]} />
         </div>
         <div className="w-1/2 p-1 md:p-2">
-          <SlideImgDivTitle n={7} timeoutRange={[8000,12000]} type="Animation" />
+          <SlideImgDiv n={7} timeoutRange={[5,10]} />
         </div>
         <div className="w-1/2 p-1 md:p-2">
-          <SlideImgDivTitle n={7} timeoutRange={[8000,12000]} type="Drama" />
+          <SlideImgDiv n={7} timeoutRange={[5,10]} />
         </div>
       </div>
     </div>

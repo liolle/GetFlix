@@ -6,7 +6,7 @@ const addMovieInfo = async (satus:string[],setLinks:React.Dispatch<React.SetStat
     let URL = `https://getflix-production-8eb4.up.railway.app/api/movies/random?n=${n}`
     
     try {
-        
+        ``
         let response = await fetch(URL)
         let data = await response.json()
         if (data){
@@ -43,8 +43,8 @@ const SlideImgDiv = ({n,timeoutRange}:Props)=>{
     let [imageLinks, setLinks] =  useState<string[]>([])
     let [idx,setIdx] = useState<number>(0)
 
-    let min = Math.min(timeoutRange[0],timeoutRange[1])
-    let max = Math.max(timeoutRange[0],timeoutRange[1])
+    let min = Math.min(timeoutRange[0]*1000,timeoutRange[1]*1000)
+    let max = Math.max(timeoutRange[0]*1000,timeoutRange[1]*1000)
 
     
     useEffect(() => {

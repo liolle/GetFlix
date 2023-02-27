@@ -1,5 +1,3 @@
-import { type } from 'os';
-import { number, string } from 'prop-types';
 import React from 'react'
 import { useState, useEffect } from 'react';
 
@@ -12,12 +10,12 @@ const addMovieInfo = async (setI:React.Dispatch<React.SetStateAction<string[]>>,
     setT:React.Dispatch<React.SetStateAction<string[]>>,
     setD:React.Dispatch<React.SetStateAction<string[]>>
     ,type:string) =>{
-    // let URL = `https://getflix-production-8eb4.up.railway.app/api/movies/random?n=${n}`
+    let URL = `https://getflix-production-8eb4.up.railway.app/api/movies/random?n=${4}`
     let URL2 = `https://getflix-production-8eb4.up.railway.app/api/movies/select?types=${type}`
     
     try {
         
-        let response = await fetch(URL2)
+        let response = await fetch(URL)
         let data = await response.json()
         if (data){
             let img_buf:string[] = []

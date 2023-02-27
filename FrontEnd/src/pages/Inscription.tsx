@@ -23,7 +23,7 @@ function Inscription(){
 
     const handleSubmit = (e: any) => {
         e.preventDefault()
-        if (!firstName || !surName || !Email || !Password || !ConfPassword) {
+        if ( !Email || !Password || !ConfPassword) {
           setFormError('Please fill in all fields.')
         } else if (!checkBoxChecked) {
           setFormError('Please accept the terms of use and privacy policy.')
@@ -68,10 +68,10 @@ function Inscription(){
             <p className="mb-4 w-48">Create your account.</p>
                 
             <form action="" onSubmit={handleSubmit}>
-                <div className= " grid grid-cols-2 gap-3">
+                {/* <div className= " grid grid-cols-2 gap-3">
                     <input type="text" placeholder="Firstname" name="firstName" onChange={e => setFirstName(e.target.value)} className="border border-gray-400 py-1 px-2" />
                     <input type="text" placeholder="Surname" name="SurName" onChange={e => setSurName(e.target.value)} className="border border-gray-400 py-1 px-2" />
-                </div>
+                </div> */}
                 <div className="mt-5">
                     <input type="email" placeholder="Email" name="Email" onChange={e => setEmail(e.target.value)} className="border border-gray-400 py-1 px-2 w-full" />
                 </div>
