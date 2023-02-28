@@ -24,7 +24,7 @@ function Payement (){
 
 return (
 
-<div className = "min-h-screen py-40 bg-gradient-to-r from-sky-400 to-indigo-900">
+<div className = "min-h-screen py-40 bg-black">
     <div className = "container mx-auto">
         <div className = "flex flex-col md:flex-row lg:flex-row w-9/12 md:w-11/12 lg:w-8/12 bg-slate-300 rounded-xl mx-auto shadow-lg overflow-hidden">
             <div className = "w-full lg:w-1/2 flex flex-col items-center justify-center p-12 bg-no-repeat bg-cover bg-center" style ={{ backgroundImage: `url(https://swsca-production.s3.amazonaws.com/ckeditor_assets/2020/03/19/dmoy01.jpg)` }}>
@@ -58,7 +58,7 @@ return (
                 </div>
                 
                 <div className="mt-5">
-                    <button type="submit" className="w-full bg-purple-500 py-3 text-center text-white">Pay Now</button>
+                    <button type="submit" className="w-full bg-gradient-to-r from-sky-400 to-sky-900 py-3 text-center text-white">Pay Now</button>
                 </div>
                 <div className="pt-5">
                     <img src={paypal} />

@@ -2,12 +2,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import * as FaIcons from 'react-icons/fa' 
+import * as FaIcons from 'react-icons/fa'
 
+import { IoLogoVimeo } from "react-icons/io";
 import { SidebarData } from './SidebarData'
-
+import { searchBar } from '../Search/search'
 import styled from 'styled-components'
 import { useState } from 'react'
+
 
 const Sidebar: React.FunctionComponent = () => {
     const [close, setClose] = useState(false)
@@ -15,15 +17,22 @@ const Sidebar: React.FunctionComponent = () => {
 
     return (
         <>
-            <Navbar className='bg-gradient-to-r from-sky-400 to-indigo-900'>
+            <Navbar style={{ zIndex: 100 }} className=" ">
+             { searchBar ()}
                 <MenuIconOpen to="#" onClick={showSidebar}>
+                        
+                    <div><IoLogoVimeo /></div> 
+                    <FaIcons.FaUser />
+                    
                     <FaIcons.FaBars />
+                    
                 </MenuIconOpen>
             </Navbar>
 
-            <SidebarMenu className='bg-gradient-to-r from-sky-400 to-indigo-900'close={close}>
+            <SidebarMenu style={{ zIndex: 100 }} className=' bg-gradient-to-b from-black to-transparent'close={close}>
                 <MenuIconClose  to="#" onClick={showSidebar}>
                     <FaIcons.FaTimes />
+                    
                 </MenuIconClose>
 
                 {SidebarData.map((item, index) => {
@@ -49,28 +58,34 @@ export default Sidebar
 
 
 const Navbar = styled.div`
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    height: 3.5rem;
-   
+  display: flex;
+  background: black;
+  align-items: center;
+  height: 3rem;
+  z-index: 100;
+  justify-content: end;
 `
+ 
 
 const MenuIconOpen = styled(Link)`
     display: flex;
-    justify-content: start;
+    justify-content: end;
     font-size: 1.5rem;
     margin-left: 2rem;
     color: white;
+    position: relative;
+    z index: 100;
 `
 
 const MenuIconClose = styled(Link)`
     display: flex;
-    justify-content: end;
+    justify-content: start;
     font-size: 1.5rem;
     margin-top: 0.75rem;
     margin-right: 1rem;
     color: white;
+    z index: 100;
+   
 `
 
 const SidebarMenu = styled.div<{close: boolean}>`
@@ -79,8 +94,9 @@ const SidebarMenu = styled.div<{close: boolean}>`
     color: white;
     position: fixed;
     top: 0;
-    left: ${({ close}) => close ? '0' : '-100%'};
+    right: ${({ close}) => close ? '0' : '-100%'};
     transition: .6s;
+    z index: 100;
 `
 
 const MenuItems = styled.li`
@@ -92,6 +108,8 @@ const MenuItems = styled.li`
     height: 90px;
     padding: 1rem 0 1.25rem;
     color: white;
+    z index: 100;
+    
 `
 
 const MenuItemLinks = styled(Link)`

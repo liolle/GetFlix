@@ -61,6 +61,10 @@ const SlideImgDiv = ({n,timeoutRange}:Props)=>{
 
     //Math.floor(Math.random()*max) + min
     return (
+
+            // <div className={` w-full h-full `} style={{ backgroundImage: `url(${imageLinks[idx]})` }}>
+            //     .
+            // </div>
             <img className="block object-cover object-center w-full h-full rounded-lg"
              src={imageLinks[idx]} alt=''></img>
         

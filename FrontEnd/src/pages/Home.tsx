@@ -1,23 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
+import ReactCardSlider from '../Components/ReactCardSlider/ReactCardSlider'
 
-
-const HomeText = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 50px;
-    height: 70vh;
-`
-
-const Home: React.FunctionComponent = () => {
+import CarouselComponent from '../Components/ReactCarouselSlider/ReactCarouselSlider'
 
 
 
-    return (
-        <HomeText>Home</HomeText>
-
-    )
+const Home: React.FC = () => {
+  return (
+    <>
+      <section className="relative bg-gradient-to-r from-black">
+        <div> 
+          <CarouselComponent />
+        </div>
+      </section>
+      {/* <section>
+        <ReactCardSlider />
+      </section> */}
+    </>
+  )
 }
 
 export default Home
