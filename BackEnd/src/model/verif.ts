@@ -107,6 +107,28 @@ export class Verif extends DbConnect {
         })
         
     }
+
+    async checkToken (key:string){
+        return new Promise<boolean>((resolve, reject) => {
+            
+            this.connection.query(`SELECT * FROM verification WHERE vToken = "${key}"`, (err:any, rows:[], fields:any)=>{
+                if (err ){
+                    console.log(err)
+                    reject(err['sqlMessage'])
+                }
+
+                if (!rows || rows.length === 0) {
+                    resolve(false)
+                }
+
+
+                resolve(true)
+            })
+        })
+        
+    }
+
+
     async create(vToken:string):Promise<string>{
         
         return new Promise<string>((resolve, reject) => {
@@ -139,7 +161,7 @@ export class Verif extends DbConnect {
         })
     }
 
-    update(username='',role='',token='x'):Promise<boolean>{
+    update():Promise<boolean>{
 
         return new Promise<boolean>((resolve, reject) => {
             resolve(false)
