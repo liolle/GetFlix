@@ -19,8 +19,8 @@ Visualize is a streaming website that allows users to choose from a huge movie c
 - Tailwind for styling
 - Node.js (TypeScript) and Express for the back-end
 - MySQL for the database
-### Database Schema
-![](https://github.com/liolle/GetFlix/blob/back/BackEnd/img/getflix.jpg?raw=true)
+### ERD
+![](./BackEnd/img/db.png)
 
 ### Sources 
 Here are some of the sources we used to help us build this project:
