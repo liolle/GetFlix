@@ -7,7 +7,7 @@ router.post('/',register)
 
 // email verificaiton 
 router.post('/vf',createVerification)
-router.post('/vfCheck',checkVerification)
+router.get('/vfCheck',checkVerification)
 
 
 module.exports = router
