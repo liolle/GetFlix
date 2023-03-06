@@ -5,7 +5,7 @@
   "scripts": {
     "test": "jest --config jest.config.json",
     "dev": "npx nodemon src/app.ts ",
-    "tsTest": " npx nodemon src/test.ts",
+    "tsTest": " npx ts-node src/test.ts",
     "start": "npx ts-node src/app.ts"
   },
   "keywords": [],
