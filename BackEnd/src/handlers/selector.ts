@@ -15,7 +15,6 @@ const getSelection = async (req: Request, res: Response): Promise<void> =>{
     let composition = req.query.composition as string || "AND" 
     let keyword = req.query.keyword as string || "" 
 
-    //Movies(movieId: -1, name?: string, videoLink?: string, title?: string, description?: string, types?: string, view?: number): Movies
     let movie = new Movies(-1,"","",title,"",types)
 
     try {
@@ -29,12 +28,14 @@ const getSelection = async (req: Request, res: Response): Promise<void> =>{
             
         });
         res.status(200).json(dbres)
-        return 
         
     } catch (error) {
         console.log(error)
         res.status(500).json({message: "Internal Server Error"})
-        return
+    }
+    finally{
+        movie.pollEnd()
+
     }
 
 }
