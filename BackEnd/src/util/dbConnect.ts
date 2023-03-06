@@ -15,10 +15,12 @@ abstract class DbConnect {
         password: process.env.MYSQLPASSWORD,
         database: process.env.DATABASE,
         port: parseInt(process.env.MYSQLPORT as string),
-        connectionLimit :10,
-        multipleStatements : true 
+        connectionLimit :30,
+        waitForConnections: true,
+        multipleStatements: true 
     });
-    console.log(`Connected to ${process.env.DATABASE} on Port ${parseInt(process.env.PORT_NUM as string)}`)
+    // console.log(`Connected to ${process.env.DATABASE} on Port ${parseInt(process.env.PORT_NUM as string)}`)
+    
   }
 
   abstract findAll(...params:any):Promise<any>;

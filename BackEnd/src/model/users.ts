@@ -52,7 +52,6 @@ export class User extends DbConnect {
                 reject(err)
             })
             
-
         })
 
     }
@@ -99,7 +98,6 @@ export class User extends DbConnect {
     }
 
     update(username='',role='',token='x'):Promise<boolean>{
-        //TODO
 
         const updateString = (username='',role='',token='x')=>{
             let res = ""
@@ -112,9 +110,7 @@ export class User extends DbConnect {
         }
 
         return new Promise<boolean>((resolve, reject) => {
-
             if (username ==''&&role==''&&token=='x') reject("missing update argument")
-
             let sql = `UPDATE user SET ${updateString(username,role,token)} WHERE email = '${this.email}'`
             
             this.connection.query(sql, (err:any, rows:any, fields:any)=>{
@@ -126,10 +122,7 @@ export class User extends DbConnect {
         })
     }
     delete():Promise<boolean>{
-        //TODO
         return new Promise<boolean>((resolve, reject) => {
-
-           
 
             let sql = `DELETE from user 
             WHERE email = '${this.email}'`

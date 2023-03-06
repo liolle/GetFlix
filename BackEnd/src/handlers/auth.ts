@@ -72,7 +72,9 @@ const auth = async (req: Request, res: Response): Promise<void> =>{
     } catch (error) {
         res.status(401).json({message: "Unauthorized"})
     }
-    
+    finally{
+        user.pollEnd()
+    }
 
 }
 

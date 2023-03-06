@@ -18,6 +18,7 @@ const create = async (user:User, with_pwd:string, res: Response)=>{
       } catch (error) {
         res.status(500).json({ error });
       }
+      
 
 }
 
@@ -42,7 +43,9 @@ const register = async (req: Request, res: Response): Promise<void> => {
         else {
             res.status(400).json({ error: err });
         }
-        return;
+    }
+    finally{
+        user.pollEnd()
     }
   
 };

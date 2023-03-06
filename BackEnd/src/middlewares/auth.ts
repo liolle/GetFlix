@@ -17,7 +17,7 @@ const verifyJwt = (req: Request, res: Response, next: NextFunction): void => {
       return;
     }
 
-    req.email = decoded.email;
+    // req.email = decoded.email;
     console.log("Check succeeded");
     next();
   });
