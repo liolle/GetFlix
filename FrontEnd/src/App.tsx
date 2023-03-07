@@ -9,8 +9,6 @@ import {  Routes, Route } from 'react-router-dom';
 import Home from './pages/Home'
 import Profile from './pages/Profile'
 import Categories from './pages/Catégories'
-import Films from './pages/Films'
-import Parametres from './pages/Paramètres'
 import LandingPage from './pages/Landing'
 import Inscription from "./pages/Inscription"
 import Login from "./pages/Login"
@@ -19,6 +17,9 @@ import Footer from "./Components/Footer/Footer"
 import ReactCarouselSlider from "./Components/ReactCarouselSlider/ReactCarouselSlider"
 import MovieCarousel from './Components/MovieCarousel/MovieCarousel';
 import ReactCardSlider from './Components/ReactCardSlider/ReactCardSlider';
+import Watch from './pages/Watch'
+import Preview from './pages/Preview'
+import MoviePage from './Components/MoviePage/MoviePage'
 
 const App = () => {
   return (
@@ -33,12 +34,12 @@ const App = () => {
           <Route path='/Payement' element={<Payement />} />
           <Route path='/Footer' element={<Footer />} />
           <Route path='/Profile' element={<Profile />} />
-          <Route path='/Catégories' element={<Categories />} />
-          <Route path='/Films' element={<Films />} />
-          <Route path='/Paramètres' element={<Parametres />} />
+          <Route path='/Watch' element={< ReactCarouselSlider/>} />
+          <Route path='/Preview' element={<ReactCarouselSlider />} />
           <Route path='/ReactCarouselSlider' element={< ReactCarouselSlider />}/>
-          <Route path='/MovieCarousel' element={< MovieCarousel />}/>  
           <Route path='/ReactCardSlider' element={<ReactCardSlider />} />
+          <Route path='/Moviecarousel' element={<MovieCarousel />} />
+          <Route path='/MoviePage' element={<MoviePage />} />
         </Routes>
       </div>
 

@@ -3,8 +3,6 @@ import { Routes, Route } from "react-router-dom"
 import Home from './pages/Home'
 import Profile from './pages/Profile'
 import Categories from './pages/Catégories'
-import Films from './pages/Preview'
-import Parametres from './pages/Watch'
 import LandingPage from './pages/Landing'
 import Inscription from "./pages/Inscription"
 import Login from "./pages/Login"
@@ -32,11 +30,11 @@ export function routes() {
     <Route path='/Profile' element={<Profile />} />
     <Route path='/Catégories' element={<Categories />} />
     <Route path='/Preview' element={<Preview />} />
-    <Route path='/Watch' element={<Watch />} />
+    <Route path='/Watch' element={< ReactCarouselSlider/>} />
    <Route path='/ReactCarouselSlider' element={< ReactCarouselSlider />}/>
-   <Route path='/MovieCarousel' element={< MovieCarousel />}/>  
     <Route path='/ReactCardSlider' element={<ReactCardSlider />} />
-    <Route path='/MoviePage' element={<MoviePage />} />
-    
+    <Route path='/MoviePage' element={<MoviePage/>} />
+    <Route path='/MovieCarousel' element={<MovieCarousel />} />
+   
   </Routes>;
 }
