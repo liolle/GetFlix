@@ -5,6 +5,12 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import "./ReactCardSlider.css"
 
+  type Movie = {
+    image:string,
+    title:string,
+    description:string
+  }
+
 
   function ReactCardSlider (){
 
@@ -30,6 +36,7 @@ import "./ReactCardSlider.css"
   
             const randomIndex = Math.floor(Math.random() * data.length);
             const movie = data[randomIndex];
+            console.log(movie)
             setImageSrc(movie.image);
             setImageDescription(movie.description);
             setTitle(movie.title);
@@ -68,6 +75,9 @@ import "./ReactCardSlider.css"
               setHorrorMovies(data);
           })
           .catch((error) => console.log(error));
+
+          
+
       }, []);
 
 
@@ -141,7 +151,7 @@ import "./ReactCardSlider.css"
       <div className="card">
         <span className="flex text-3xl sm:text-xl md:text-3xl lg:text-4xl ml-3 font-bold pb-5 pt-5 text-white">Action movies</span>
         <Slider {...settings}>
-          {action.map((movie, index) => (
+          {action.map((movie: Movie, index) => (
             <div key={index} className="px-2 slider-card">
               <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30 ">
                 <div className="">
@@ -161,7 +171,7 @@ import "./ReactCardSlider.css"
       <div className="card">
         <span className="flex text-3xl sm:text-xl md:text-3xl lg:text-4xl ml-3 font-bold pb-5 pt-5 text-white">Adventure movies</span>
         <Slider {...settings}>
-          {adventureMovies.map((movie, index) => (
+          {adventureMovies.map((movie: Movie, index) => (
             <div key={index} className="px-2 slider-card">
               <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30 ">
                 <div className="">
@@ -181,7 +191,7 @@ import "./ReactCardSlider.css"
       <div className="card">
         <span className="flex text-3xl sm:text-xl md:text-3xl lg:text-4xl ml-3 font-bold pb-5 pt-5 text-white">Thriller movies</span>
         <Slider {...settings}>
-          {thrillerMovies.map((movie, index) => (
+          {thrillerMovies.map((movie: Movie, index) => (
             <div key={index} className="px-2 slider-card">
               <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30 ">
                 <div className="">
@@ -201,7 +211,7 @@ import "./ReactCardSlider.css"
       <div className="card">
         <span className="flex text-3xl sm:text-xl md:text-3xl lg:text-4xl ml-3 font-bold pb-5 pt-5 text-white">Animated movies</span>
         <Slider {...settings}>
-          {animatedMovies.map((movie, index) => (
+          {animatedMovies.map((movie: Movie, index) => (
             <div key={index} className="px-2 slider-card">
               <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30 ">
                 <div className="">
@@ -221,7 +231,7 @@ import "./ReactCardSlider.css"
       <div className="card">
         <span className="flex text-3xl sm:text-xl md:text-3xl lg:text-4xl ml-3 font-bold pb-5 pt-5 text-white">Animated movies</span>
         <Slider {...settings}>
-          {horrorMovies.map((movie, index) => (
+          {horrorMovies.map((movie: Movie, index) => (
             <div key={index} className="px-2 slider-card">
               <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30 ">
                 <div className="">

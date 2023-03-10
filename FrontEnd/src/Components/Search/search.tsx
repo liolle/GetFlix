@@ -23,7 +23,7 @@ import { FaSearch } from 'react-icons/fa';
       <div className="absolute inset-y-0 left-0 flex items-center pl-3">
           <FaSearch className="text-gray-500" />
       </div>
-      <button type="submit" className="hidden"></button>
+      <button type="submit" className="hidden">Search</button>
       </div>
     </form>
   );
