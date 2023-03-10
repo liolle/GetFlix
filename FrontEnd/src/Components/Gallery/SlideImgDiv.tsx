@@ -43,8 +43,8 @@ const SlideImgDiv = ({n,timeoutRange}:Props)=>{
     let [imageLinks, setLinks] =  useState<string[]>([])
     let [idx,setIdx] = useState<number>(0)
 
-    let min = Math.min(timeoutRange[0],timeoutRange[1])
-    let max = Math.max(timeoutRange[0],timeoutRange[1])
+    let min = Math.min(timeoutRange[0]*1000,timeoutRange[1]*1000)
+    let max = Math.max(timeoutRange[0]*1000,timeoutRange[1]*1000)
 
     
     useEffect(() => {
@@ -61,6 +61,10 @@ const SlideImgDiv = ({n,timeoutRange}:Props)=>{
 
     //Math.floor(Math.random()*max) + min
     return (
+
+            // <div className={` w-full h-full `} style={{ backgroundImage: `url(${imageLinks[idx]})` }}>
+            //     .
+            // </div>
             <img className="block object-cover object-center w-full h-full rounded-lg"
              src={imageLinks[idx]} alt=''></img>
         

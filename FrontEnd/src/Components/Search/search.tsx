@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 
 
-  export const searchBar: React.FC = () => {
+  export const searchBar = () => {
 
   const [searchText, setSearchText] = useState('');
 

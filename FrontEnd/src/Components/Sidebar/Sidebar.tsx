@@ -17,7 +17,7 @@ const Sidebar: React.FunctionComponent = () => {
 
     return (
         <>
-            <Navbar style={{ zIndex: 100 }} className="">
+            <Navbar style={{ zIndex: 100 }} className=" ">
              { searchBar ()}
                 <MenuIconOpen to="#" onClick={showSidebar}>
                         

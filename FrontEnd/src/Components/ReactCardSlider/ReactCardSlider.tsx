@@ -36,7 +36,7 @@ import "./ReactCardSlider.css"
   
             const randomIndex = Math.floor(Math.random() * data.length);
             const movie = data[randomIndex];
-            console.log(movie)
+            
             setImageSrc(movie.image);
             setImageDescription(movie.description);
             setTitle(movie.title);
