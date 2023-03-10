@@ -1,0 +1,14 @@
+
+  .slider-card {
+    position: relative;
+  }
+
+  .slick-slide:hover .group {
+    transform: scale(1.5);
+    z-index: 1;
+  
+  }
+
+  .group:hover .h-48 {
+    height: 250px;
+  }

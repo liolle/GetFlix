@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/liolle/GetFlix/issues"
   },
-  "homepage": "https://github.com/liolle/GetFlix#readme"
+  "homepage": "https://github.com/liolle/GetFlix#readme",
+  "dependencies": {
+    "react-icons": "^4.7.1"
+  }
 }
