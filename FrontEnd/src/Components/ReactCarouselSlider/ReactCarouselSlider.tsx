@@ -7,6 +7,8 @@ interface Movie {
   id: string;
   title: string;
   image: string;
+  videoLink: string;
+  description: string;
 }
 
 const CarouselComponent: React.FC = () => {
@@ -22,13 +24,18 @@ const CarouselComponent: React.FC = () => {
 
   return (
     <section className="bg-gradient-to-r from-black bg-black relative z-10 overflow-hidden ">
-      <Carousel showArrows autoPlay>
+      
+       <Carousel showArrows autoPlay>
         {movies.map((movie) => (
           <div key={movie.id}>
             <img src={movie.image} alt={movie.title} />
+            
           </div>
+          
         ))}
-      </Carousel>
+       </Carousel>
+      
+      
     </section>
   );
 };

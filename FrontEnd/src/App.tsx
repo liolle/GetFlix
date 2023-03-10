@@ -8,14 +8,8 @@ const App = () => {
   return (
   
     <>
-      
-
       <Sidebar/> 
-          
-        {routes()}
-        
-      
-      
+      {routes()}
     </>
   )
 }

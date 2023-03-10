@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios';
+import axios from 'axios'
 import { StarIcon } from '@heroicons/react/24/solid'
-
 
 interface Movie {
   movieId: number;
@@ -59,7 +58,8 @@ const MoviePage: React.FC = () => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MoviePage
+export default MoviePage;
+

@@ -6,7 +6,9 @@ import MovieCarousel from '../Components/MovieCarousel/MovieCarousel'
 
 const Preview: React.FunctionComponent = () => {
     return (
-       < MovieCarousel/>
+        <div>
+          < MovieCarousel/>
+       </div>
     )
 }
 

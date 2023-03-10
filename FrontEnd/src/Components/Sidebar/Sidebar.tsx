@@ -21,7 +21,7 @@ const Sidebar: React.FunctionComponent = () => {
              { searchBar ()}
                 <MenuIconOpen to="#" onClick={showSidebar}>
                         
-                    <div><IoLogoVimeo /></div> 
+                   
                     <FaIcons.FaUser />
                     
                     <FaIcons.FaBars />
