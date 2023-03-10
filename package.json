@@ -8,6 +8,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "npm run dev --workspace=FrontEnd",
+    "preview-f": "npm run preview --workspace=FrontEnd",
+    "deploy-f": "npm run deploy --workspace=FrontEnd",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,4 +23,5 @@
     "url": "https://github.com/liolle/GetFlix/issues"
   },
   "homepage": "https://github.com/liolle/GetFlix#readme"
+  
 }
