@@ -26,12 +26,12 @@ const LandingPage = () => {
         <h2 className="text-lg mb-8 font-bold">More than a film, an Experience!</h2>
         
         <div>
-          <button className="bg-neutral-900 hover:bg-black text-white py-1 px-6 text-lg rounded-md mb-8">
+          <button className="bg-sky-400 hover:bg-sky-900 text-white py-1 px-6 text-lg rounded-md mb-8">
           <Link to="/Login">Login</Link></button>
         </div>
 
         <div>
-          <button className="bg-neutral-900 hover:bg-black  text-white py-1 px-6 text-lg rounded-md mb-8">
+          <button className="bg-sky-400 hover:bg-sky-900 text-white py-1 px-6 text-lg rounded-md mb-8">
           <Link to ="/Inscription">Register</Link></button>
         </div>
 
