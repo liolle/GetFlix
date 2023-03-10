@@ -14,9 +14,9 @@ const Home: React.FC = () => {
           <CarouselComponent />
         </div>
       </section>
-      {/* <section>
+      <section>
         <ReactCardSlider />
-      </section> */}
+      </section>
     </>
   )
 }

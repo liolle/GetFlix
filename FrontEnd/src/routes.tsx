@@ -37,8 +37,8 @@ export function routes() {
     {/* <Route path= '/Test' element={<ImageProps title="blade runner" />}/> */}
     <Route path='/Preview' element={<Preview />} />
     <Route path='/Watch' element={<Watch />} />
-   <Route path='/ReactCarouselSlider' element={< ReactCarouselSlider />}/>
-   <Route path='/MovieCarousel' element={< MovieCarousel />}/>  
+    <Route path='/ReactCarouselSlider' element={< ReactCarouselSlider />}/>
+    <Route path='/MovieCarousel' element={< MovieCarousel />}/>  
     <Route path='/ReactCardSlider' element={<ReactCardSlider />} />
     <Route path='/MoviePage' element={<MoviePage />} />
     

@@ -18,7 +18,7 @@ const MovieCarousel: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
-    axios.get<Movie[]>('https://getflix-production-8eb4.up.railway.app/api/movies/random?n=10')
+    axios.get<Movie[]>('https://getflix-production-8eb4.up.railway.app/api/movies/random')
       .then(response => {
         setMovies(response.data);
       })
