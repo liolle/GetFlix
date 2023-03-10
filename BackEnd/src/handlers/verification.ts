@@ -39,9 +39,9 @@ export const  createVerification = async (req: Request, res: Response)=>{
 }
   
 export const checkVerification = async (req: Request, res: Response)=>{
-    const {key} = req.body
+    let key = req.query.key as string || "" 
 
-    if (!key ){
+    if ( key == ""){
         res.status(400).json({msg: "One of the entry required entry is missing"})
         return
     }
