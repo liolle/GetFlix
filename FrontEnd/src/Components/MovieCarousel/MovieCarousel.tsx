@@ -43,7 +43,8 @@ const MovieCarousel: React.FC = () => {
   };
 
   return (
-    <div className='bg-black text-white mr-4'>
+    
+    <div className='bg-black text-white mr-4 '>
       <Carousel
         responsive={responsive}
         showDots={true}
@@ -56,7 +57,7 @@ const MovieCarousel: React.FC = () => {
             <a href={movie.videoLink}>
               <img src={movie.image} alt={movie.title} />
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <button className="w-16 h-16 rounded-full bg-skyblue flex items-center justify-center">
+                <button className="w-16 h-16 rounded-full bg-skyblue flex items-center justify-center ">
                   <i className="fa fa-play text-white"></i>
                 </button>
               </div>

@@ -15,12 +15,12 @@ export const SidebarData = [
    
     {
         title: 'Watch',
-        path: '/Films',
+        path: '/Watch',
         icon: <FaIcons.FaFilm />
     },
     {
         title: 'Preview',
-        path: '/Paramètres',
+        path: '/Preview',
         icon: <FaIcons.FaList/>
     }
 ]

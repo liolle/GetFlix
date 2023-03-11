@@ -19,7 +19,7 @@ const MoviePage: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get<Movie>('https://getflix-production-8eb4.up.railway.app/api/movies/random');
+        const response = await axios.get<Movie>('https://getflix-production-8eb4.up.railway.app/api/movies/select');
         setMovie(response.data);
       } catch (error) {
         console.log(error);

@@ -10,11 +10,7 @@ const Home: React.FC = () => {
   return (
     <>
       <section className="relative bg-gradient-to-r from-black">
-        <div> 
-          <CarouselComponent />
-        </div>
-      </section>
-      <section>
+       
         <ReactCardSlider />
       </section>
     </>
