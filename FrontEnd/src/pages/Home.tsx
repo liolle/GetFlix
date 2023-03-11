@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ReactCardSlider from '../Components/ReactCardSlider/ReactCardSlider'
 
-import CarouselComponent from '../Components/ReactCarouselSlider/ReactCarouselSlider'
+
 
 
 

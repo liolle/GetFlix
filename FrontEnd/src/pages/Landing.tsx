@@ -43,7 +43,7 @@ const LandingPage = () => {
    
    <section className='  flex-[0_1_50%] bg-black'>
     <div className=' flex justify-center px-8 py-10 zIndex: 100 text-white text-2xl font-bold mb-4'>
-        <h1>Our diverse and exclusive selection of movies!"</h1>
+        <h1>Our Diverse And Exclusive Selection Of Movies!"</h1>
     </div>
     <Mosaic />
    </section>
