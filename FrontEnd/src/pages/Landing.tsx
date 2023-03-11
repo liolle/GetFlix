@@ -42,13 +42,14 @@ const LandingPage = () => {
     </section>
    
    <section className='  flex-[0_1_50%] bg-black'>
+    <div className=' flex justify-center px-8 py-10 zIndex: 100 text-white text-2xl font-bold mb-4'>
+        <h1>Our diverse and exclusive selection of movies!"</h1>
+    </div>
     <Mosaic />
    </section>
         
     <section className=" flex-[0_1_25%] overflow-hidden text-white text-xl font-bold bg-black ">
-      <div className='px-8 py-10'>
-        <h1>Our diverse and exclusive selection of movies!"</h1>
-      </div>
+      
     
       <Faq/>
       <Footer/>
