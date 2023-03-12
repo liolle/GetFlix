@@ -52,53 +52,58 @@ export const EMAIL_VALIDATION_MODEL1 = (resetLink:string):string =>{
 
 export const sendmail = async (recipient:string,htmlMessage:string,subject:string)=>{
 
-    try {
-        const tokenRes = await  OAuth2_client.getAccessToken()
-        const accestoken = tokenRes.token as string
-
-        const transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            secure: true,
-            port: 465,
-            auth: {
-                type: 'OAuth2',
-                user: USER_EMAIL,
-                clientId: CLIENT_ID,
-                clientSecret: CLIENT_SECRET,
-                refreshToken: REFRESH_TOKEN,
-                accessToken: accestoken,
-            },
-        });
-
-        const mailOptions = {
-            from: `VISUALIZE <${USER_EMAIL}>`,
-            to : recipient,
-            subject: subject,
-            html: htmlMessage
-        }
+    return new Promise<{status:string,message:string}>(async (resolve, reject) => {
         
-        transporter.sendMail(mailOptions,(error,result)=>{
-            if (error){
-                console.log({
-                    status:"Failed",
-                    message:error
-                })
+        try {
+            const tokenRes = await  OAuth2_client.getAccessToken()
+            const accestoken = tokenRes.token as string
+    
+            const transporter = nodemailer.createTransport({
+                host: 'smtp.gmail.com',
+                secure: true,
+                port: 465,
+                auth: {
+                    type: 'OAuth2',
+                    user: USER_EMAIL,
+                    clientId: CLIENT_ID,
+                    clientSecret: CLIENT_SECRET,
+                    refreshToken: REFRESH_TOKEN,
+                    accessToken: accestoken,
+                },
+            });
+    
+            const mailOptions = {
+                from: `VISUALIZE <${USER_EMAIL}>`,
+                to : recipient,
+                subject: subject,
+                html: htmlMessage
             }
-            else{
-                console.log({
-                    status:"OK",
-                    message:result.response
-                })
-            }
-            transporter.close()
-        })
+            
+            transporter.sendMail(mailOptions,(error,result)=>{
+                if (error){
+                    reject({
+                        status:"Failed",
+                        message:error
+                    })
+                }
+                else{
+                    resolve({
+                        status:"OK",
+                        message:result.response
+                    })
+                }
+                transporter.close()
+            })
+    
+        } catch (error) {
+            reject({
+                status:"Failed",
+                message:error
+            })
+            
+        }
+    })
 
-    } catch (error) {
-        console.log({
-            status:"Failed",
-            message:error
-        })
-    }
 
 
 
