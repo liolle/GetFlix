@@ -31,17 +31,17 @@ export const EMAIL_VALIDATION_MODEL1 = (resetLink:string):string =>{
                 gap: 10px; align-items: center; background-color: beige;
                 height: fit-content; padding: 5%; border-radius: 8px; 
                 font-size: x-large; font-weight: 600; font-family:monospace;">
-                    Thank you for signing up for our service! To get started, 
+                    Thank you for signing up to our service! In order to get started, 
                     we need to verify your email address. 
-    
-                    <form method="get" action="${resetLink}" style=" width: 100%; display: 
-                    flex; justify-content: center;" >
-                        <input type="submit" value="Verify my email" 
-                        style="width: 50%; cursor: pointer; padding: 10px;
-                        border-radius: 8px; border-width: 0px;  
-                        background-color: #0C4A6E; font-weight: 700; color: beige;"/>
-                    </form>
-                    </button>
+                    
+                    <a href="${resetLink}" target="_blank"
+                    style="width: 50%; cursor: pointer; padding: 10px;
+                    border-radius: 8px; border-width: 0px; text-align: center;
+                    background-color: #0C4A6E; font-weight: 700; color: beige;
+                    text-decoration: none;"> 
+                    Verify my email 
+                    </a>
+              
                 </div>
             </section>
         </div>

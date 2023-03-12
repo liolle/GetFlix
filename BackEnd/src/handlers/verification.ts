@@ -25,7 +25,7 @@ export const  createVerification = async (req: Request, res: Response)=>{
         )
         
     try {
-        let key = Verif.generateToken(200)
+        let key = Verif.generateToken(50)
         await verif1.create(key)
 
         // sent email 
@@ -48,7 +48,7 @@ export const checkEmailVf = async (req: Request, res: Response)=>{
     let key = req.query.key as string || "" 
 
     if (key == ""){
-        res.status(400).json({msg: "One of the entry required entry is missing"})
+        res.status(400).json({message: "One of the entry required entry is missing"})
         return
     }
     
