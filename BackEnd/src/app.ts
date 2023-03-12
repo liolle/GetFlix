@@ -29,13 +29,6 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(cors());
 
-/*
-    TODO
-    -login route
-    -logout route
-    -refresh route
-    -register route 
-*/
 
 app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 

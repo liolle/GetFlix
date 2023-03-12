@@ -1,7 +1,7 @@
 import {User} from "../model/users";
 import {Verif} from "../model/verif";
 import { Request, Response } from 'express';
-import { sendmail, EMAIL_VALIDATION_MODEL1 } from "../services/email";
+import { sendmail , EMAIL_VALIDATION_MODEL1} from "../services/email";
 
 
 const createLink = (key:string):string=>{
@@ -35,6 +35,7 @@ export const  createVerification = async (req: Request, res: Response)=>{
             message:"Email sent at: " + email
         })
     } catch (err) {
+        console.log(err)
         res.status(500).json({message: "Server issues"})
     }
     finally{
