@@ -11,23 +11,25 @@ import Responsive from './Components/ReactCardSlider/ReactCardSlider'
 import Watch from './pages/Watch'
 import Preview from './pages/Preview'
 
-
+import PrivateRoutes from './util/PrivateRoutes'
 
 
 export function routes() {
   return <Routes>
-    <Route path='/' element={<LandingPage />} />
-    <Route path='/home' element={<Home />} />
-    <Route path='/Inscription' element={<Inscription />} /> 
-    <Route path='/Login' element={<Login />} />
+
+    <Route element={<PrivateRoutes />}>
+      <Route path='/home' element={<Home />} />
+      <Route path='/Profile' element={<Profile />} />
+      <Route path='/Preview' element={<Preview />} />
+      <Route path='/Watch' element={<Watch />} />
+      {/* <Route path='/Footer' element={<Footer />} /> */}
+      {/* <Route path='/ReactCardSlider' element={<Responsive />} /> */}
+    </Route>
+
     <Route path='/Payement' element={<Payement />} />
-    <Route path='/Footer' element={<Footer />} />
-    <Route path='/Profile' element={<Profile />} />
-    <Route path='/ReactCardSlider' element={<Responsive />} />
-    {/* <Route path= '/Test' element={<ImageProps title="blade runner" />}/> */}
-    <Route path='/Preview' element={<Preview />} />
-    <Route path='/Watch' element={<Watch />} />
-    
-    
+    <Route path='/Login' element={<Login />} />
+    <Route path='/Inscription' element={<Inscription />} />
+    <Route path='/' element={<LandingPage />} />
+
   </Routes>;
 }
