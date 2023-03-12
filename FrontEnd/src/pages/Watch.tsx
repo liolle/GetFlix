@@ -1,7 +1,5 @@
 import React from 'react'
-import View from '../Components/Watch/Watch'
-
-import CarouselComponent from '../Components/ReactCarouselSlider/ReactCarouselSlider'
+import MoviePage from '../Components/MoviePage/MoviePage'
 
 
 
@@ -10,7 +8,7 @@ const Watch: React.FC = () => {
       
       <section className="relative bg-gradient-to-r from-black">
        
-        < CarouselComponent/>
+        < MoviePage/>
       </section>
     )
   }
