@@ -58,16 +58,16 @@ const MoviePage: React.FC = () => {
     return (
       <section className='grid grid-cols-3 grid-rows-3 gap-8 h-screen w-screen bg-black text-white p-4'>
         {movies.map(movie => (
-          <div key={movie.movieId} className='col-span-1 row-span-3'>
-            <button className='bg-gradient-to-r from-sky-400 to-sky-900 text-white px-4 py-2 rounded-full mb-4' onClick={() => window.location.href = movie.videoLink}>
-              <img src={movie.image} alt={movie.name} className='mb-2' style={{ width: '100%', maxHeight: '40vh', objectFit: 'cover' }} />
-              <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
-                <svg xmlns='http://www.w3.org/2000/svg' className='h-16 w-16' viewBox='0 0 20 20' fill='currentColor'>
-                  <path d='M5 3l8 5-8 5V3z' />
-                </svg>
-              </div>
-            </button>
-          </div>
+           <div key={movie.movieId} className='p-8'>
+           
+           <img className='mx-auto mb-8' src={movie.image} alt={movie.name} width={300} height={450} />
+           
+           <div className='flex justify-center mt-8'>
+           <button className='bg-gradient-to-r from-sky-400 to-sky-900 text-white px-4 py-2 rounded-full mb-4' onClick={() => window.location.href = movie.videoLink}>
+                PLAY
+              </button>
+           </div>
+         </div>
         ))}
          {movies.map(movie => (
           <div key={movie.movieId} className='col-span-2 row-span-3'>
