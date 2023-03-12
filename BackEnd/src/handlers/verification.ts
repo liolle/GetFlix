@@ -38,8 +38,8 @@ export const  createVerification = async (req: Request, res: Response)=>{
     
 }
   
-export const checkVerification = async (req: Request, res: Response)=>{
-    const {key} = req.body
+export const checkEmailVf = async (req: Request, res: Response)=>{
+    const {key} = req.params
 
     if (!key ){
         res.status(400).json({msg: "One of the entry required entry is missing"})
@@ -54,7 +54,7 @@ export const checkVerification = async (req: Request, res: Response)=>{
     )
 
     try {
-        let checked = await verif1.checkToken(key)
+        let checked = await verif1.addStatusFromVf(key,1)
 
         if (checked){
 

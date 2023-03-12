@@ -17,23 +17,39 @@ let movie = new Movies(-1,"","","","","action,thriller")
 //     console.log(err)
 // })
 
-// let verif1 = new Verif(
-//     "test@test.com",
-//     Verif.getTimeStamp(),
-//     "testToken01",
-//     1
-// )
+let verif1 = new Verif(
+    "test2@test.com",
+    Verif.getTimeStamp(),
+    "testToken01",
+    1
+);
 
-// verif1.create("testToken01")
+// let vToken = Verif.generateToken(200)
+
+// verif1.create(vToken)
 // .then((msg)=>{
     
 //     console.log(msg)
+//     return
 // })
+// .catch((err)=>{
+//     console.log(err)
+//     return
+// })
+// sendmail("pofaf44477@luxeic.com",EMAIL_VALIDATION_MODEL1("https://google.com"),"Email verification")
 
-sendmail("pofaf44477@luxeic.com",EMAIL_VALIDATION_MODEL1("https://google.com"),"Email verification")
 
+(async ()=>{
 
+    try {
+        let res = await verif1.addStatusFromVf("BcUEFqVxeiW613CX1wxC0UaPCwYlPquegfFRLns0CWXAjt1gLSHBozFnoUZZvFQSIuIMjH8p3qAHsQHBJDwgvquOkuOuWi5RaLdJ2HFtG7nCITVa0rXTqnu0HJNxHXqvRFssN2TXIfR9tsTDL73aGQAbN8dLdbWlneP844Y6unQj1be3TgHvzXNgajCl33JJpWcIgj38",2)
+        
+        console.log(res)
+    } catch (error) {
+        console.log(error)
 
+    }
+})();
 
 /*
 movie.findSelection("","")
