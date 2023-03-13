@@ -7,6 +7,7 @@ import swaggerJsdoc from "swagger-jsdoc";
 import swaggerDocument from "./api-doc.json"
 /* Local imports */
 import config from './util/config';
+import  cookieCheck  from "./middlewares/cookieCheck"
 // const verifyJwt = require('./middlewares/verifyJwt')
 // const {connectDb} = require('./db_util')
 
@@ -29,6 +30,8 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(cors());
 
+
+app.use(cookieCheck)
 
 app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 

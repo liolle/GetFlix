@@ -30,7 +30,10 @@ abstract class DbConnect {
   abstract delete(...params:any):Promise<any>;
 
   pollEnd() {
-    this.connection.end();
+
+    setTimeout(()=>{
+      this.connection.end();
+    },500)
   }
 
 }

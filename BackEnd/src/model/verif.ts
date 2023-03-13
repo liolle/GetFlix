@@ -165,9 +165,6 @@ export class Verif extends DbConnect {
         
         return new Promise<string>((resolve, reject) => {
 
-            // let sql = `INSERT INTO user (email,vToken,type,timeout)
-            // VALUES ('${this.email}', '${this.vToken}', '${this.type}','${this.timeout}')`
-
             /*
             
              vToken types : 1 => email verificaiton

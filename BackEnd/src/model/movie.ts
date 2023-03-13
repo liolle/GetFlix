@@ -170,7 +170,7 @@ export class Movies extends DbConnect {
         return sql_request;
     }
 
-    update(username='',role='',token='x'):Promise<boolean>{
+    update(username='',status='',token='x'):Promise<boolean>{
         //TODO
         return new Promise<boolean>((resolve, reject) => {
             resolve(false)
