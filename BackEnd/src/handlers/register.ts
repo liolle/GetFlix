@@ -16,6 +16,7 @@ const create = async (user:User, with_pwd:string, res: Response)=>{
         const result = await user.create(with_pwd);
         res.status(200).json({ msg: 'New user created' });
       } catch (error) {
+        console.log("HERE: "+error)
         res.status(500).json({ error });
       }
       

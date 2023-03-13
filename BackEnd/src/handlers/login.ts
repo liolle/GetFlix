@@ -28,7 +28,7 @@ const basicConnect = async (user:User,hashedPwd:string,req: Request, res: Respon
         )
 
         try {
-            user.update("","",refreshToken)
+            user.update("",0,refreshToken)
             .then((data)=>{
                 console.log(data)
             })

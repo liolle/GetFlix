@@ -7,7 +7,7 @@ CREATE TABLE user (
 	email varchar(128) PRIMARY KEY NOT NULL,
     pwd varchar(128) NOT NULL,
 	username varchar(128) ,
-    role varchar(128),
+    status varchar(128),
     token varchar(256)
 );
 
@@ -17,14 +17,14 @@ export class User extends DbConnect {
     email: string;
     pwd: string;
     username: string;
-    role: string;
+    status: number;
     token: string;
 
     constructor(
         email:string,
         pwd = "",
         username = "",
-        role = "USER",
+        status = 0,
         token = "",
     ) {
 
@@ -36,7 +36,7 @@ export class User extends DbConnect {
         this.email = email;
         this.pwd = pwd;
         this.username = username;
-        this.role = role;
+        this.status = status;
         this.token = token;
     }
 
@@ -85,33 +85,35 @@ export class User extends DbConnect {
         const hashedPwd =  await bcrypt.hash(pwd, 10)
         return new Promise<boolean>((resolve, reject) => {
 
-            let sql = `INSERT INTO user (email,pwd,username,role,token)
-            VALUES ('${this.email}', '${hashedPwd}', '','USER','')`
+            let sql = `INSERT INTO user (email,pwd,username,status,token)
+            VALUES ('${this.email}', '${hashedPwd}', '',0,'')`
             
             this.connection.query(sql, (err:any, rows:any, fields:any)=>{
                 if (err){
                     reject(err['sqlMessage'])
+                    console.log(err)
+                    return
                 }
                 resolve(true)
             })
         })
     }
 
-    update(username='',role='',token='x'):Promise<boolean>{
+    update(username='',status=0,token='x'):Promise<boolean>{
 
-        const updateString = (username='',role='',token='x')=>{
+        const updateString = (username='',status=0,token='x')=>{
             let res = ""
 
             if(username) res+=`username = '${username}'`;
-            if(role) res == ""? res+=` role = '${role}'`:res+=`, role = '${role}'`;
+            if(status) res == ""? res+=` status = '${status}'`:res+=`, status = '${status}'`;
             if(token != 'x') res == ""? res+=` token = '${token}'`:res+=`, token = '${token}'`;
 
             return res
         }
 
         return new Promise<boolean>((resolve, reject) => {
-            if (username ==''&&role==''&&token=='x') reject("missing update argument")
-            let sql = `UPDATE user SET ${updateString(username,role,token)} WHERE email = '${this.email}'`
+            if (username ==''&&status==0&&token=='x') reject("missing update argument")
+            let sql = `UPDATE user SET ${updateString(username,status,token)} WHERE email = '${this.email}'`
             
             this.connection.query(sql, (err:any, rows:any, fields:any)=>{
                 if (err){
