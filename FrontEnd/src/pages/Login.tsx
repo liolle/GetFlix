@@ -22,19 +22,21 @@ function Login (){
           const url = "https://getflix-production-8eb4.up.railway.app/login"
 
 
-
-          fetch(url, {
-            method: "POST",
+          let option = {
+            method: 'POST',
+            headers: {
+              'accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
               email: Email,
               pwd: Password
-            }),
+            })
+          }
 
-            headers: {
-              "Content-Type" : "application/json"
-            }
-            }).then((response) => response.json())
-            .then((data) => {
+          fetch(url, option)
+          .then((response) => response.json())
+          .then((data) => {
               console.log(data)
               // doit changer location via rezct router dom with useHistory or useLocztion 
               // token 
