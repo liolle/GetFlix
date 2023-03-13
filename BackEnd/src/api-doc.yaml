@@ -1,0 +1,441 @@
+openapi: 3.0.0
+info:
+  title: Sample API
+  description: Optional multiline or single-line description in [CommonMark](http://commonmark.org/help/) or HTML.
+  version: 0.1.9
+servers:
+  
+  - url: https://getflix-production-8eb4.up.railway.app
+
+paths:
+  /register:
+    post:
+      summary: Add user . 
+      tags:
+        - User
+      requestBody:
+
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email :
+                  type : string
+                pwd :
+                  type : string
+              required:
+               - email
+               - pwd
+            example:
+              email: test2@test.com
+              pwd: test
+              
+      
+            
+      responses:
+        '200':    # status code
+          description: OK
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  message:
+                    type: string
+
+        '400':    # status code
+          description: Already exist
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  message:
+                    type: string
+                    
+  /register/vf:
+    post:
+      summary: send a verification link to the given email address .
+      tags:
+        - User
+      requestBody:
+      
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email :
+                  type : string
+              required:
+               - email 
+            example:
+              email: test2@test.com
+              
+              
+      
+            
+      responses:
+        '200':    # status code
+          description: OK
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  message:
+                    type: string
+
+        '400':    # status code
+          description: one element missing
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  message:
+                    type: string
+                  
+          
+        '500':    # status code
+          description: Server issues
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  message:
+                    type: string
+                    
+  /register/vfCheck:
+    get:
+      summary: update the status of the user associated with the given key .
+      tags:
+        - User
+        
+      parameters:
+        - in: query
+          name: key
+          required: true
+          schema:
+            type: string
+          description: verification key
+      
+            
+      responses:
+        '200':    # status code
+          description: OK
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  message:
+                    type: string
+
+        '400':    # status code
+          description: invalid link
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  message:
+                    type: string
+                  
+          
+        '500':    # status code
+          description: Server issues
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  message:
+                    type: string
+  
+  
+  /login:
+    post:
+      summary: clasic login . 
+      tags:
+        - User
+      requestBody:
+
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email :
+                  type : string
+                pwd :
+                  type : string
+              required:
+               - email 
+            example:
+              email: test2@test.com
+              pwd: test
+              
+      
+            
+      responses:
+        '200':    # status code
+          description: OK
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  message:
+                    type: string
+                  token:
+                    type: string
+        '401':    # status code
+          description: Unauthorized
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  message:
+                    type: string
+                  
+          
+        '500':    # status code
+          description: Server issues
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  message:
+                    type: string
+  
+  /login/auth:
+    post:
+      summary: login with email .
+      tags:
+        - User
+      security:
+        - bearerAuth: []
+      requestBody:
+      
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email :
+                  type : string
+              required:
+               - email 
+            example:
+              email: test2@test.com
+              
+              
+      
+            
+      responses:
+        '200':    # status code
+          description: OK
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  message:
+                    type: string
+
+        '401':    # status code
+          description: Unauthorized
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  message:
+                    type: string
+                  
+          
+        '500':    # status code
+          description: Server issues
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  message:
+                    type: string
+ 
+  /api/movies/select:
+    get:
+      summary: select movie basec ont type, title or keyword . 
+      tags:
+        - Movies
+      
+      parameters:
+        - in: query
+          name: types
+          schema:
+            type: string
+          description: comma séparated list of string representing the types of movies Ex.(action,thriller)
+        - in: query
+          name: composition
+          schema:
+            type: string
+          description: way the query shoul group the result (AND / OR)
+        - in: query
+          name: keyword
+          schema:
+            type: string
+          description: keyword we are looking for (in the title or description)
+        - in: query
+          name: title
+          schema:
+            type: string
+          description: title of the movie (will overule every other parameters)
+              
+      
+      responses:
+        '200':    # status code
+          description: OK
+          content:
+            application/json:
+              schema: 
+                type : array
+                items:
+                    type: object
+                    properties:
+                      movieId:
+                        type: integer
+                      name: 
+                        type: string
+                      videoLink: 
+                        type: string
+                      title: 
+                        type: string
+                      description: 
+                        type: string
+                      types: 
+                        type: string
+                      views:
+                        type: integer
+              example:
+                  [{
+                    movieId: 11,
+                    name: /6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg,
+                    videoLink: "https://www.youtube.com/watch?v=XsS1yE2f-hE",
+                    title: "Star Wars",
+                    description: "Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.",
+                    types: "AdventureActionScience Fiction",
+                    views: 0
+                  }]
+                      
+        '500':    # status code
+          description: Server Issues
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /api/movies/types:
+    get:
+      summary: list of film types . 
+      tags:
+        - Movies
+      
+              
+      
+      responses:
+        '200':    # status code
+          description: OK
+          content:
+            application/json:
+              schema: 
+                type : array
+                items:
+                    type: string
+                    
+              example:
+                  
+                 [action, horror] 
+                
+                      
+        '500':    # status code
+          description: Server Issues
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  message:
+                    type: string
+    
+  /api/movies/random:
+    get:
+      summary: list of random movies . 
+      tags:
+        - Movies
+      
+      parameters:
+        - in: query
+          name: n
+          schema:
+            type: string
+          description: number of movies to returm (1 by default)
+      
+      responses:
+        '200':    # status code
+          description: OK
+          content:
+            application/json:
+              schema: 
+                type : array
+                items:
+                    type: string
+                    
+              example:
+                  
+                 [{
+                    movieId: 11,
+                    name: /6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg,
+                    videoLink: "https://www.youtube.com/watch?v=XsS1yE2f-hE",
+                    title: "Star Wars",
+                    description: "Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.",
+                    types: "AdventureActionScience Fiction",
+                    views: 0
+                  }]
+                
+                      
+        '500':    # status code
+          description: Server Issues
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  message:
+                    type: string
+
+
+components:
+  securitySchemes:
+    bearerAuth:            # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT    # optional, arbitrary value for documentation purposes
+                  
+tags:
+  - name: User
+    description: User operations
+
+  - name: Movies
+    description: Movies operations
+    
+  - name: Review
+    description: Movies operations

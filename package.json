@@ -1,5 +1,27 @@
 {
-  "dependencies": {
-    "react-icons": "^4.7.1"
-  }
+  "name": "getflix",
+  "workspaces":[
+    "BackEnd",
+    "FrontEnd"],
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run dev --workspace=FrontEnd",
+    "preview-f": "npm run preview --workspace=FrontEnd",
+    "deploy-f": "npm run deploy --workspace=FrontEnd",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liolle/GetFlix.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liolle/GetFlix/issues"
+  },
+  "homepage": "https://github.com/liolle/GetFlix#readme"
+  
 }
