@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { StarIcon } from '@heroicons/react/24/solid';
+import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa"
+
+
 
 interface Movie {
   movieId: number;
@@ -75,8 +79,21 @@ const MoviePage: React.FC = () => {
             <p className='text-lg mb-8'>{movie.types}</p>
             <p className='text-lg'>{movie.description}</p>
             <p className='text-lg mb-8'>{movie.views} views</p>
+            <div className="flex items-center mb-2">
+               <StarIcon className="w-6 h-6 text-yellow-400 mr-1" />
+               <StarIcon className="w-6 h-6 text-yellow-400 mr-1" />
+               <StarIcon className="w-6 h-6 text-yellow-400 mr-1" />
+                        
+                      </div>
+            <div className="flex items-center space-x-4">
+              <FaFacebook className="text-3xl text-blue-500 hover:text-blue-700 cursor-pointer" />
+              <FaTwitter className="text-3xl text-blue-400 hover:text-blue-600 cursor-pointer" />
+              <FaInstagram className="text-3xl text-pink-500 hover:text-pink-700 cursor-pointer" />
+      </div>
+
           </div>
         ))}
+         
       </section>
     );
   }

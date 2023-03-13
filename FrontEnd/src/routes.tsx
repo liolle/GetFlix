@@ -14,6 +14,7 @@ import Preview from './pages/Preview'
 
 
 
+
 export function routes() {
   return <Routes>
     <Route path='/' element={<LandingPage />} />
@@ -27,6 +28,8 @@ export function routes() {
     {/* <Route path= '/Test' element={<ImageProps title="blade runner" />}/> */}
     <Route path='/Preview' element={<Preview />} />
     <Route path='/Watch' element={<Watch />} />
+   
+    
     
     
   </Routes>;
