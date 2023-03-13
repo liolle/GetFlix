@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Outlet, Navigate } from 'react-router-dom'
 
 const isAuth = ()=>{
@@ -6,8 +7,15 @@ const isAuth = ()=>{
 }
 
 const PrivateRoutes = () => {
+
+    const [auth,setAuth] = useState(false)
+
+    useEffect(()=>{
+        console.log("Rerender")
+    })
+
     return(
-        isAuth() ? <Outlet/> : <Navigate to="/login"/>
+        auth ? <Outlet/> : <Navigate to="/login"/>
     )
 }
 
