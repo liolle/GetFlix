@@ -19,7 +19,7 @@ const ProfilePage: React.FC = () => {
   const [suggestedMovies, setSuggestedMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
-    axios.get<Movie[]>('https://getflix-production-8eb4.up.railway.app/api/movies/favorites')
+    axios.get<Movie[]>('https://getflix-production-8eb4.up.railway.app/api/movies/random')
       .then(response => {
         setFavoriteMovies(response.data);
       })
@@ -27,7 +27,7 @@ const ProfilePage: React.FC = () => {
         console.log(error);
       });
 
-    axios.get<Movie[]>('https://getflix-production-8eb4.up.railway.app/api/movies/watchlist')
+    axios.get<Movie[]>('https://getflix-production-8eb4.up.railway.app/api/movies/random')
       .then(response => {
         setWatchlistMovies(response.data);
       })
@@ -35,7 +35,7 @@ const ProfilePage: React.FC = () => {
         console.log(error);
       });
 
-    axios.get<Movie[]>('https://getflix-production-8eb4.up.railway.app/api/movies/suggested')
+    axios.get<Movie[]>('https://getflix-production-8eb4.up.railway.app/api/movies/random')
       .then(response => {
         setSuggestedMovies(response.data);
       })

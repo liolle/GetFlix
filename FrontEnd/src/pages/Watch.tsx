@@ -1,4 +1,5 @@
 import React from 'react'
+
 import MoviePage from '../Components/MoviePage/MoviePage'
 
 
