@@ -1,7 +1,7 @@
 import {User} from "../model/users";
 import {Verif} from "../model/verif";
 import { Request, Response } from 'express';
-import { sendmail, EMAIL_VALIDATION_MODEL1 } from "../services/email";
+import { sendmail , EMAIL_VALIDATION_MODEL1} from "../services/email";
 
 
 const createLink = (key:string):string=>{
@@ -25,7 +25,7 @@ export const  createVerification = async (req: Request, res: Response)=>{
         )
         
     try {
-        let key = Verif.generateToken(200)
+        let key = Verif.generateToken(50)
         await verif1.create(key)
 
         // sent email 
@@ -35,6 +35,7 @@ export const  createVerification = async (req: Request, res: Response)=>{
             message:"Email sent at: " + email
         })
     } catch (err) {
+        console.log(err)
         res.status(500).json({message: "Server issues"})
     }
     finally{
@@ -44,12 +45,10 @@ export const  createVerification = async (req: Request, res: Response)=>{
 }
   
 export const checkEmailVf = async (req: Request, res: Response)=>{
-    const {key} = req.query
+    let key = req.query.key as string || "" 
 
-    if (!key ){
-        console.log(req.query)
-        
-        res.status(400).json({msg: "One of the entry required entry is missing"})
+    if (key == ""){
+        res.status(400).json({message: "One of the entry required entry is missing"})
         return
     }
     
