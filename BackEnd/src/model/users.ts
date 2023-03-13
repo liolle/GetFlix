@@ -91,7 +91,6 @@ export class User extends DbConnect {
             this.connection.query(sql, (err:any, rows:any, fields:any)=>{
                 if (err){
                     reject(err['sqlMessage'])
-                    console.log(err)
                     return
                 }
                 resolve(true)

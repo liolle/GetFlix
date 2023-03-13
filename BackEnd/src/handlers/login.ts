@@ -1,5 +1,5 @@
 const { json } = require('express')
-
+import { signJWT, verifyJWT } from "../util/token";
 import  {User}  from "../model/users";
 import jwt from "jsonwebtoken";
 import  bcrypt  from "bcrypt";
@@ -10,35 +10,22 @@ require('dotenv').config()
 
 
 const basicConnect = async (user:User,hashedPwd:string,req: Request, res: Response)=>{
-    //TODO
+
     const {pwd} = req.body
     
     if(bcrypt.compareSync(pwd,hashedPwd)){
-        //Creat token and sent it
-        const accessToken = jwt.sign(
-            {"email": user.email},
-            process.env.ACCESS_TOKEN_S as string,
-            {expiresIn:process.env.ACCESS_TOKEN_TTL}
-        )
 
-        const refreshToken = jwt.sign(
-            {"email": user.email},
-            process.env.REFRESH_TOKEN_S as string,
-            {expiresIn:process.env.REFRESH_TOKEN_TTL}
-        )
+        const accessToken = signJWT({"email": user.email}, process.env.ACCESS_TOKEN_TTL as string);
+        const refreshToken = signJWT({"email": user.email}, process.env.REFRESH_TOKEN_TTL as string);
 
         try {
-            user.update("",0,refreshToken)
-            .then((data)=>{
-                console.log(data)
-            })
-            .catch((err)=>{
-                console.log(err)
-            })
+            // await user.update("",0,refreshToken)
+            
             res.cookie("VRToken",refreshToken,{httpOnly:true,maxAge:24*60*60*1000})
+            res.cookie("VAToken",accessToken,{httpOnly:true,maxAge:20*60*1000})
+
             res.status(200).json({
-                message: "Access granted",
-                token:accessToken
+                message: "Access granted"
             })
             // copy token in db
         } catch (error) {

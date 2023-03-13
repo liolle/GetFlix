@@ -31,7 +31,7 @@ app.use(cookieParser())
 app.use(cors());
 
 
-// app.use(cookieCheck)
+app.use(cookieCheck)
 
 app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
