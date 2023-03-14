@@ -16,9 +16,7 @@ const LoginTransition = () => {
       res.status === 200 ? setAuth(true) : setAuth(false);
     };
 
-    setTimeout(()=>{
-        fetchAuth();
-    },2000)
+    fetchAuth();
 
   }, []);
 
