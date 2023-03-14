@@ -24,7 +24,7 @@ const options = {
   };
 
 
-const  whitelist = ['https://liolle.github.io','http://localhost:5173']
+const  whitelist = ['https://liolle.github.io','http://localhost']
 
 var corsOptions = {
   credentials: true,
