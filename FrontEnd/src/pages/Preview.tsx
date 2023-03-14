@@ -1,5 +1,8 @@
 import React from 'react'
-import MovieCarousel from '../Components/MovieCarousel/MovieCarousel'
+import MoviePage from '../Components/MoviePage/MoviePage'
+
+
+
 
 
 
@@ -7,7 +10,7 @@ import MovieCarousel from '../Components/MovieCarousel/MovieCarousel'
 const Preview: React.FunctionComponent = () => {
     return (
         <div>
-          < MovieCarousel/>
+          < MoviePage/>
        </div>
     )
 }

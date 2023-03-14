@@ -1,45 +1,71 @@
 import React, { useState, useRef } from 'react'
 
+const checkInput = (email:string,pwd:string):{status:string, emailErr:string,pwdErr:string}=> {
+   const retObj = {
+    status:"OK", 
+    emailErr: "",
+    pwdErr:""
+  }
+  if (email.length <=0 || pwd.length <=0){
+    retObj.status = "Failed"
+    retObj.emailErr = !email ? "email missing" : ""
+    retObj.pwdErr = !pwd ? "pwd missing" : ""
+  }
+  return retObj
+}
 
 function Login (){
 
         const [Email, setEmail] = useState('')
         const [Password, setPassword] = useState('')
-        const [formError, setFormError] = useState('')
+        const [emailErr, setEmailErr] = useState('')
+        const [pwdErr, setPwdErr] = useState('')
 
     // const location = useLocation()
-        const handleSubmit = (e: any) => {
-            e.preventDefault()
-            if (!Email || !Password) {
-              setFormError('Please fill in all fields.')
-            }else { 
-              setFormError('') 
-              console.log("Formulaire envoyé"); 
-              // setIsSubmitted(true)   
+
+        const handleSubmit = () => {
+
+            setEmailErr('')
+            setPwdErr('')
+
+            let errObj = checkInput(Email,Password)
+            if (errObj.status != "OK"){
+              setEmailErr(errObj.emailErr)
+              setPwdErr(errObj.pwdErr)
             }
-          }
+            else{
+              (async ()=>{
+                
+                          const url = "https://getflix-production-8eb4.up.railway.app/login"
+                          const localURL = "http://localhost:3535/login"
+                
+                          let option = {
+                            method: 'POST',
+                            headers: {
+                              'accept': 'application/json',
+                              'Content-Type': 'application/json',
+                              
+                            },
+                            credentials: "include" as RequestCredentials,
+                            body: JSON.stringify({
+                              email: Email,
+                              pwd: Password
+                            }),
+                            
+                          }
+                          
+                          try {
+                            let res = await fetch(localURL, option)
+                            let data = await res.json()
+                            console.log(data)
+                          } catch (error) {
+                            console.log(error)
+                          }
 
-          const url = "https://getflix-production-8eb4.up.railway.app/login"
+              })();
 
-
-
-          fetch(url, {
-            method: "POST",
-            body: JSON.stringify({
-              email: Email,
-              pwd: Password
-            }),
-
-            headers: {
-              "Content-Type" : "application/json"
             }
-            }).then((response) => response.json())
-            .then((data) => {
-              console.log(data)
-              // doit changer location via rezct router dom with useHistory or useLocztion 
-              // token 
-              // location.push('/ReactCardSlider' token: 65765864646747)
-            } ).catch(e => console.log(e.message))
+        }
 
     return (
         <div className = "min-h-screen py-40 bg-black">
@@ -53,29 +79,38 @@ function Login (){
     
                 <p className="mb-4 w-48"></p>
                     
-                <form action="" onSubmit={handleSubmit}>
-                    <div className= " grid mt-5">
-                        <input type="email" placeholder="Email" name="Email" onChange={e => setEmail(e.target.value)} className="border border-gray-400 py-1 px-2 w-full" />
-                    </div>
-                    <div className="mt-5">
-                        <input type="password" placeholder="Password" name="Password" onChange={e => setPassword(e.target.value)} className= "border border-gray-400 py-1 px-2 w-full" />
-                        {formError && <p>{formError}</p>}
-                   <div className="mt-5">
-                   <input type="checkbox" name="checkbox"  className="border border-gray-400" />
-                   
+                
+                  <div className= " grid mt-5">
+                      <input type="email" placeholder="Email" name="Email" 
+                      onChange={e => setEmail(e.target.value)} 
+                      className="border border-gray-400 py-1 px-2 w-full" />
+                      <span className=' text-red-600 font-bold'> {emailErr} </span>
+                  </div>
+
+                  <div className="mt-5">
+                      <input type="password" placeholder="Password" 
+                      name="Password" onChange={e => setPassword(e.target.value)} 
+                      className= "border border-gray-400 py-1 px-2 w-full" />
+                      <span className=' text-red-600 font-bold'> {pwdErr} </span>
+                  </div>
+
+                  <div className="mt-5">
+                    <input type="checkbox" name="checkbox"  className="border border-gray-400" />
                     <span> To remember me </span>
-                    </div>
-                    </div>
-                    <div className="mt-5 pb-5">
-                        <button type="submit" className="w-full bg-gradient-to-r from-sky-400 to-sky-900 py-3 text-center text-white">Login</button>
-                    </div>
-                    <div>
-                      <span> First time visit on Visualize ? <a href="/" className="bg-gradient-to-r from-sky-400 to-sky-900 font-semibold">Sign up</a></span>
-                    </div>
-                    <div>
-                      <span> First time visit on Visualize ? <a href="/" className="font-semibold">Sign up</a></span>
-                    </div>
-                </form>
+                  </div>
+
+                  <div className="mt-5 pb-5">
+                      <button type="button" 
+                      className="w-full bg-gradient-to-r 
+                      from-sky-400 to-sky-900 py-3 text-center text-white"
+                      
+                      onClick={handleSubmit}>Login</button>
+                  </div>
+                  
+                  <div>
+                    <span> First time visit on Visualize ? <a href="/" className="font-semibold">Sign up</a></span>
+                  </div>
+                
                 
               </div>
             </div>

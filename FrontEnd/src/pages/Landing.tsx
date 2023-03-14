@@ -16,7 +16,7 @@ const LandingPage = () => {
 
   return (
 
-    <div className=' flex flex-col bg-gradient-to-r from-sky-400 to-sky-900'>
+    <div className=' flex flex-col '>
 
 
     <section className=" flex-[0_1_25%] text-white gap-4" style={backgroundImageStyle}>
@@ -26,12 +26,12 @@ const LandingPage = () => {
         <h2 className="text-lg mb-8 font-bold">More than a film, an Experience!</h2>
         
         <div>
-          <button className="bg-sky-400 hover:bg-sky-900 text-white py-1 px-6 text-lg rounded-md mb-8">
+          <button className="bg-gradient-to-r from-sky-400 to-sky-900 text-white py-1 px-6 text-lg rounded-md mb-8">
           <Link to="/Login">Login</Link></button>
         </div>
 
         <div>
-          <button className="bg-sky-400 hover:bg-sky-900 text-white py-1 px-6 text-lg rounded-md mb-8">
+          <button className="bg-gradient-to-r from-sky-400 to-sky-900 text-white py-1 px-6 text-lg rounded-md mb-8">
           <Link to ="/Inscription">Register</Link></button>
         </div>
 
@@ -41,14 +41,15 @@ const LandingPage = () => {
       </div>
     </section>
    
-   <section className='  flex-[0_1_50%]'>
+   <section className='  flex-[0_1_50%] bg-black'>
+    <div className=' flex justify-center px-8 py-10 zIndex: 100 text-white text-2xl font-bold mb-4'>
+        <h1>Our Diverse And Exclusive Selection Of Movies!"</h1>
+    </div>
     <Mosaic />
    </section>
         
-    <section className=" flex-[0_1_25%] overflow-hidden text-white text-xl font-bold bg-neutral-900 ">
-      <div className='px-8 py-10'>
-        <h1>Our diverse and exclusive selection of movies!"</h1>
-      </div>
+    <section className=" flex-[0_1_25%] overflow-hidden text-white text-xl font-bold bg-black ">
+      
     
       <Faq/>
       <Footer/>
