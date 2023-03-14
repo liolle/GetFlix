@@ -7,6 +7,7 @@ const PrivateRoute = () => {
   useEffect(() => {
     const fetchAuth = async () => {
       const authRoute = "https://getflix-production-8eb4.up.railway.app/login/auth";
+      const authRouteLocal = "http://localhost:3535/login/auth";
       let option = {
         method: 'POST',
         credentials: 'include' as RequestCredentials

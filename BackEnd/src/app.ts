@@ -24,17 +24,11 @@ const options = {
   };
 
 
-const  whitelist = ['https://liolle.github.io','http://localhost']
+const  whitelist = ['https://liolle.github.io','http://localhost:5173','http://localhost:4173']
 
 var corsOptions = {
   credentials: true,
-  origin: function (origin :any, callback :any) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
+  origin: whitelist
 }
   
 const app = express();
