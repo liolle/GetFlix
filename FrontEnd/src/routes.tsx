@@ -9,7 +9,7 @@ import Watch from './pages/Watch'
 import Preview from './pages/Preview'
 
 import PrivateRoutes from './util/PrivateRoutes'
-
+import LoginTransition from './util/LoginTransition'
 
 
 export function routes() {
@@ -22,8 +22,11 @@ export function routes() {
       <Route path='/Watch' element={<Watch />} />
     </Route>
 
+    <Route element={<LoginTransition />}>
+      <Route path='/Login' element={<Login />} />
+    </Route>
+
     <Route path='/Payement' element={<Payement />} />
-    <Route path='/Login' element={<Login />} />
     <Route path='/Inscription' element={<Inscription />} />
     <Route path='/' element={<LandingPage />} />
 

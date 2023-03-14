@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react'
+import { useState } from 'react'
+import { useNavigate  } from 'react-router-dom';
 
 const checkInput = (email:string,pwd:string):{status:string, emailErr:string,pwdErr:string}=> {
    const retObj = {
@@ -20,7 +21,7 @@ function Login (){
         const [Password, setPassword] = useState('')
         const [emailErr, setEmailErr] = useState('')
         const [pwdErr, setPwdErr] = useState('')
-
+        const navigate = useNavigate();
     // const location = useLocation()
 
         const handleSubmit = () => {
@@ -58,6 +59,7 @@ function Login (){
                             let res = await fetch(url, option)
                             let data = await res.json()
                             console.log(data)
+                            navigate("/home")
                           } catch (error) {
                             console.log(error)
                           }
@@ -104,7 +106,7 @@ function Login (){
                       className="w-full bg-gradient-to-r 
                       from-sky-400 to-sky-900 py-3 text-center text-white"
                       
-                      onClick={handleSubmit}>Login</button>
+                      onClick={ ()=> handleSubmit() }>Login</button>
                   </div>
                   
                   <div>
@@ -118,5 +120,10 @@ function Login (){
         </div>
     )
     }
+
+
+// const Log = ()=>{
+//   []
+// }
 
 export default Login; 
