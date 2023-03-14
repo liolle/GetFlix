@@ -6,17 +6,16 @@ const PrivateRoute = () => {
 
   useEffect(() => {
     const fetchAuth = async () => {
-      const authRouteLocal = "http://localhost:3535/login/auth";
+      const authRoute = "https://getflix-production-8eb4.up.railway.app/login/auth";
       let option = {
         method: 'POST',
         credentials: 'include' as RequestCredentials
       }
-      const res = await fetch(authRouteLocal, option);
+      const res = await fetch(authRoute, option);
       res.status === 200 ? setAuth(true) : setAuth(false);
     };
 
     setTimeout(()=>{
-
         fetchAuth();
     },2000)
 

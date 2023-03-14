@@ -22,16 +22,25 @@ const options = {
     basePath: '/', // Base path (optional)
     apis: ['./src/**/*.ts'], // files containing annotations as above
   };
+
+
+const  whitelist = ['https://liolle.github.io','http://localhost:5173']
+
+var corsOptions = {
+  credentials: true,
+  origin: function (origin :any, callback :any) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
   
 const app = express();
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors(
-  {
-    credentials: true,
-    origin: "http://localhost:5173",
-  }
-));
+app.use(cors(corsOptions));
 
 app.use(VATokenRefresher)
 
