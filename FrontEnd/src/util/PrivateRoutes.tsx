@@ -1,39 +1,34 @@
-import { useState, useEffect } from 'react';
-import { Outlet, Navigate } from 'react-router-dom'
+import { useState, useEffect, lazy, Suspense } from 'react';
+import { Route, Navigate, Outlet } from 'react-router-dom';
 
-const isAuth = ()=>{
-    //TODO check auth somehow 
-    return false 
-}
+const PrivateRoute = () => {
+  const [auth, setAuth] = useState<boolean | null>(null);
 
-const PrivateRoutes = () => {
+  useEffect(() => {
+    const fetchAuth = async () => {
+      const authRouteLocal = "http://localhost:3535/login/auth";
+      let option = {
+        method: 'POST',
+        credentials: 'include' as RequestCredentials
+      }
+      const res = await fetch(authRouteLocal, option);
+      res.status === 200 ? setAuth(true) : setAuth(false);
+    };
 
-    const [auth,setAuth] = useState(false)
+    setTimeout(()=>{
 
-    useEffect( ()=>{
-        console.log("Rerender")
-        const authRoute = "https://getflix-production-8eb4.up.railway.app/login/auth";
-        
-        (async ()=>{
+        fetchAuth();
+    },2000)
 
-            let option = {
-                method: 'POST',
-            }
+  }, []);
 
-            let res = await fetch(authRoute,option)
+  if (auth === null) {
+    return <div>Loading...</div>;
+  }
 
-            res.status == 200 ? setAuth(true) : setAuth(false)
-            
+  return auth ? <Outlet /> : <Navigate to="/login" />
 
-        })();
+};
 
+export default PrivateRoute
 
-    })
-
-    return(
-        // auth ? <Outlet/> : <Navigate to="/login"/>
-        <Outlet/>
-    )
-}
-
-export default PrivateRoutes
