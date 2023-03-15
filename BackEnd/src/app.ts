@@ -38,10 +38,12 @@ app.use(cors(corsOptions));
 
 app.use(VATokenRefresher)
 
+
 app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/register',require('./routes/register.route'))
-app.use('/login',require('./routes/login.route'))
 app.use('/api',require('./routes/api.route'))
+app.use('/users',require('./routes/user.route'))
+app.use('/login',require('./routes/login.route'))
 
 /*
 app.use('/logout',require('./routes/logout'))

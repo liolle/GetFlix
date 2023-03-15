@@ -1,7 +1,7 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
 import { Route, Navigate, Outlet } from 'react-router-dom';
 
-const PrivateRoute = () => {
+const LoginTransition = () => {
   const [auth, setAuth] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -16,7 +16,6 @@ const PrivateRoute = () => {
       res.status === 200 ? setAuth(true) : setAuth(false);
     };
 
-    
     fetchAuth();
 
   }, []);
@@ -25,9 +24,9 @@ const PrivateRoute = () => {
     return <div>Loading...</div>;
   }
 
-  return auth ? <Outlet /> : <Navigate to="/login" />
+  return auth ? <Navigate to="/home" />  : <Outlet />
 
 };
 
-export default PrivateRoute
+export default LoginTransition
 

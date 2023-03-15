@@ -6,11 +6,9 @@ import { signJWT, verifyJWT } from "../util/token";
 
 const VATokenRefresher = (req: Request, res: Response, next: NextFunction) =>{
   const { VRToken, VAToken } = req.cookies;
-  
   if (!VAToken) {
     return next();
   }
-
   const { payload, expired } = verifyJWT(VAToken);
   // For a valid access token
   if (payload) {

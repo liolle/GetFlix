@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react'
+import { useState } from 'react'
+import { useNavigate , Link } from 'react-router-dom';
 
 const checkInput = (email:string,pwd:string):{status:string, emailErr:string,pwdErr:string}=> {
    const retObj = {
@@ -20,7 +21,7 @@ function Login (){
         const [Password, setPassword] = useState('')
         const [emailErr, setEmailErr] = useState('')
         const [pwdErr, setPwdErr] = useState('')
-
+        const navigate = useNavigate();
     // const location = useLocation()
 
         const handleSubmit = () => {
@@ -58,6 +59,7 @@ function Login (){
                             let res = await fetch(url, option)
                             let data = await res.json()
                             console.log(data)
+                            navigate("/home")
                           } catch (error) {
                             console.log(error)
                           }
@@ -69,7 +71,7 @@ function Login (){
 
     return (
         <div className = "min-h-screen py-40 bg-black">
-        <div className = "container mx-auto">
+          <div className = "container mx-auto">
             <div className = "flex flex-col md:flex-row lg:flex-row w-9/12 md:w-11/12 lg:w-8/12 bg-slate-400 rounded-xl mx-auto shadow-lg overflow-hidden">
                 <div className = "w-full lg:w-1/2 flex flex-col items-center justify-center p-12 bg-no-repeat bg-cover bg-center" style ={{ backgroundImage: `url(https://swsca-production.s3.amazonaws.com/ckeditor_assets/2020/03/19/dmoy01.jpg)` }}>
                 </div>
@@ -78,7 +80,6 @@ function Login (){
                 <h2 className = "text-4xl mb-4 pb-5">Sign In</h2>
     
                 <p className="mb-4 w-48"></p>
-                    
                 
                   <div className= " grid mt-5">
                       <input type="email" placeholder="Email" name="Email" 
@@ -104,19 +105,22 @@ function Login (){
                       className="w-full bg-gradient-to-r 
                       from-sky-400 to-sky-900 py-3 text-center text-white"
                       
-                      onClick={handleSubmit}>Login</button>
+                      onClick={ ()=> handleSubmit() }>Login</button>
                   </div>
                   
                   <div>
-                    <span> First time visit on Visualize ? <a href="/" className="font-semibold">Sign up</a></span>
+                    <span> First time visit on Visualize ? <Link className=' font-semibold' to="/Inscription">Register</Link></span>
                   </div>
-                
-                
               </div>
             </div>
           </div>    
         </div>
     )
     }
+
+
+// const Log = ()=>{
+//   []
+// }
 
 export default Login; 
