@@ -11,7 +11,6 @@ const createLink = (key:string):string=>{
 export const  createVerification = async (req: Request, res: Response)=>{
 
     const {email} = req.body
-
     if (!email ){
         res.status(400).json({message: "One of the entry required entry is missing"})
         return

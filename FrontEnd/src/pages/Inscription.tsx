@@ -78,7 +78,7 @@ function Inscription(){
                   }
                   
                   try {
-                    let res = await fetch(localURL, option)
+                    let res = await fetch(url, option)
                     let data = await res.json()
                     console.log(data)
                     navigate("/login")
