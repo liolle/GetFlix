@@ -3,12 +3,11 @@ import express from 'express';
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import swaggerUi from "swagger-ui-express";
-import swaggerJsdoc from "swagger-jsdoc";
 import swaggerDocument from "./api-doc.json"
 /* Local imports */
 import config from './util/config';
-// const verifyJwt = require('./middlewares/verifyJwt')
-// const {connectDb} = require('./db_util')
+import  VATokenRefresher  from "./middlewares/VATokenRefresher"
+
 
 // Extended: https://swagger.io/specification/#infoObject
 const options = {
@@ -23,37 +22,32 @@ const options = {
     basePath: '/', // Base path (optional)
     apis: ['./src/**/*.ts'], // files containing annotations as above
   };
+
+
+const  whitelist = ['https://liolle.github.io','http://localhost:5173','http://localhost:4173']
+
+var corsOptions = {
+  credentials: true,
+  origin: whitelist
+}
   
 const app = express();
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors());
+app.use(cors(corsOptions));
 
-/*
-    TODO
-    -login route
-    -logout route
-    -refresh route
-    -register route 
-*/
+app.use(VATokenRefresher)
+
 
 app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
 app.use('/register',require('./routes/register.route'))
-
+app.use('/api',require('./routes/api.route'))
+app.use('/users',require('./routes/user.route'))
 app.use('/login',require('./routes/login.route'))
 
-app.use('/api',require('./routes/api.route'))
-
-
-///api/movies/select? type=t1,t2,...&title=x&composition=union|inter&keyword=x
-
 /*
-app.use('/refresh',require('./routes/refresh'))
 app.use('/logout',require('./routes/logout'))
 */
-
-
 
 const port  = config.PORT;
 app.listen(port,() =>{

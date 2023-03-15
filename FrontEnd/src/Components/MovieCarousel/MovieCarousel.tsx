@@ -27,46 +27,40 @@ const MovieCarousel: React.FC = () => {
       });
   }, []);
 
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
-  };
+  
 
   return (
-    <div className='bg-black text-white mr-4'>
-      <Carousel
-        responsive={responsive}
-        showDots={true}
-        infinite={true}
-        autoPlay={true}
-        autoPlaySpeed={4000}
-      >
-        {movies.map(movie => (
-          <div key={movie.movieId} className="relative">
-            <a href={movie.videoLink}>
-              <img src={movie.image} alt={movie.title} />
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <button className="w-16 h-16 rounded-full bg-skyblue flex items-center justify-center">
-                  <i className="fa fa-play text-white"></i>
-                </button>
-              </div>
-            </a>
-            <h3>{movie.title}</h3>
-            <p>{movie.description}</p>
+  
+    <section className='grid grid-cols-3 grid-rows-3 gap-8 h-screen w-screen bg-black text-white mr-4'>
+  {movies.map(movie => (
+    <div key={movie.movieId} className="relative grid grid-cols-3 grid-rows-2">
+      <div className="header col-span-3">
+        <h3>{movie.title}</h3>
+      </div>
+      <div className="leftSide row-span-2">
+      <p>{movie.description}</p>
+      </div>
+      <div className="body col-span-2 row-span-2">
+        <a href={movie.videoLink}>
+          <img src={movie.image} alt={movie.title} />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <button className="w-16 h-16 rounded-full bg-skyblue flex items-center justify-center">
+              <i className="fa fa-play text-white"></i>
+            </button>
           </div>
-        ))}
-      </Carousel>
+        </a>
+      </div>
+      <div className="rightSide col-span-1 row-span-2">
+        <p>{movie.description}</p>
+      </div>
+      <div className="footer col-span-3">
+        <p>{movie.views}</p>
+      </div>
     </div>
+  ))}
+</section>
+
+
   );
 };
 

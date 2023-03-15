@@ -12,13 +12,14 @@ import { Request, Response } from 'express';
 
 const create = async (user:User, with_pwd:string, res: Response)=>{
 
-    try {
-        const result = await user.create(with_pwd);
-        res.status(200).json({ msg: 'New user created' });
-      } catch (error) {
-        res.status(500).json({ error });
-      }
-      
+    return new Promise<string>( async (resolve, reject) => {
+        try {
+            const result = await user.create(with_pwd);
+            resolve("New user created")
+        } catch (error) {
+            reject(error)
+        }
+    })
 
 }
 
@@ -34,14 +35,23 @@ const register = async (req: Request, res: Response): Promise<void> => {
     
     try {
         await user.findOne() 
-        create(user,pwd,res)
+        let message = await create(user,pwd,res)
+        res.status(200).json({message: message});
         
-    } catch (err) {
-        if ((err == "no user found")){
+    } catch (error) {
+        if ((error == "no user found")){
             create(user,pwd,res);
+            try {
+                let message = await create(user,pwd,res)
+                res.status(200).json({message: message});
+            } catch (error ) {
+                let err = (error as string).includes("Duplicate entry") ? "Email already exit" : "Bad request "
+                res.status(400).json({ message: err });
+            }
         }
         else {
-            res.status(400).json({ error: err });
+            let err = (error as string).includes("Duplicate entry") ? "Email already exit" : "Bad request "
+            res.status(400).json({ message: err });
         }
     }
     finally{
