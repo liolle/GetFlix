@@ -15,7 +15,7 @@ const getUserInfo = async (setUser:React.Dispatch<React.SetStateAction<User>>) =
 
     try {
         
-        let response = await fetch(localURL,option)
+        let response = await fetch(url,option)
         let data = await response.json()
         if (data){
             console.log(data)
