@@ -2,10 +2,10 @@ import {User} from "../model/users";
 import {Verif} from "../model/verif";
 import { Request, Response } from 'express';
 import { sendmail , EMAIL_VALIDATION_MODEL1} from "../services/email";
-
+require('dotenv').config()
 
 const createLink = (key:string):string=>{
-    return `https://getflix-production-8eb4.up.railway.app/register/vfCheck?key=${key}`
+    return process.env.SERVER+`/register/vfCheck?key=${key}`
 }
 
 export const  createVerification = async (req: Request, res: Response)=>{
