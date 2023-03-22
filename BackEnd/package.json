@@ -5,8 +5,11 @@
   "scripts": {
     "test": "jest --config jest.config.json",
     "dev": "npx nodemon src/app.ts ",
+    "build": "rimraf dist && tsc",
+    "ts.check": "tsc --project tsconfig.json",
+    "add-build": "git add dist",
     "tsTest": " npx ts-node src/test.ts",
-    "start": "npx ts-node src/app.ts"
+    "start": "npx nodemon src/app.ts"
   },
   "keywords": [],
   "author": "",
@@ -22,7 +25,7 @@
     "cross-env": "^7.0.3",
     "jest": "^29.4.3",
     "node-fetch": "^3.3.0",
-    "nodemon": "^2.0.20",
+    "nodemon": "^2.0.21",
     "ts-jest": "^29.0.5",
     "typescript": "^4.9.5"
   },
@@ -39,8 +42,15 @@
     "jsonwebtoken": "^9.0.0",
     "mysql2": "^3.1.2",
     "nodemailer": "^6.9.1",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^4.4.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^4.6.1",
     "ts-node": "^10.9.1"
-  }
+  },
+  "pre-commit": [
+    "ts.check",
+    "build",
+    "add-build"
+  ]
 }
