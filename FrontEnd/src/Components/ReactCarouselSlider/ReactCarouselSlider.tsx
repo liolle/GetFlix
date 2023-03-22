@@ -11,12 +11,14 @@ interface Movie {
   description: string;
 }
 
+const host =  "http://localhost:3535"
+
 const CarouselComponent: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const response = await axios.get<Movie[]>('https://getflix-production-8eb4.up.railway.app/api/movies/random?n=13');
+      const response = await axios.get<Movie[]>(host+'/api/movies/random?n=13');
       setMovies(response.data);
     };
     fetchMovies();

@@ -2,7 +2,8 @@ import { signJWT } from "../util/token";
 import  {User}  from "../model/users";
 import  bcrypt  from "bcrypt";
 import { Request, Response, NextFunction } from "express";
-require('dotenv').config()
+import dotenv from "dotenv";
+dotenv.config();
 
 
 

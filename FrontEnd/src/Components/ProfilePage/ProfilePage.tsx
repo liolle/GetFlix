@@ -14,13 +14,15 @@ interface Movie {
   image: string;
 }
 
+const host =  "http://localhost:3535"
+
 const ProfilePage: React.FC = () => {
   const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>([]);
   const [watchlistMovies, setWatchlistMovies] = useState<Movie[]>([]);
   const [suggestedMovies, setSuggestedMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
-    axios.get<Movie[]>('https://getflix-production-8eb4.up.railway.app/api/movies/select?title=The%20dictator')
+    axios.get<Movie[]>(host+'/api/movies/select?title=The%20dictator')
       .then(response => {
         setFavoriteMovies(response.data);
       })
@@ -28,7 +30,7 @@ const ProfilePage: React.FC = () => {
         console.log(error);
       });
 
-    axios.get<Movie[]>('https://getflix-production-8eb4.up.railway.app/api/movies/select?title=Gladiator')
+    axios.get<Movie[]>(host+'/api/movies/select?title=Gladiator')
       .then(response => {
         setWatchlistMovies(response.data);
       })
@@ -36,7 +38,7 @@ const ProfilePage: React.FC = () => {
         console.log(error);
       });
 
-    axios.get<Movie[]>('https://getflix-production-8eb4.up.railway.app/api/movies/select?title=One%20Piece%3A%20Strong%20World')
+    axios.get<Movie[]>(host+'/api/movies/select?title=One%20Piece%3A%20Strong%20World')
       .then(response => {
         setSuggestedMovies(response.data);
       })

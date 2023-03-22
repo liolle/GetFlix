@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
-require('dotenv').config()
+import dotenv from "dotenv";
+dotenv.config();
 import { verifyJWT } from "../util/token";
 
 const auth = async (req: Request, res: Response): Promise<void> =>{

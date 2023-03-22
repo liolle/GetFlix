@@ -11,6 +11,7 @@ import "./ReactCardSlider.css"
     description:string
   }
 
+  const host =  "http://localhost:3535"
 
   function ReactCardSlider (){
 
@@ -28,7 +29,7 @@ import "./ReactCardSlider.css"
       useEffect(() => {
         // Fetch the list of action movies and set it in the state
         
-          fetch("https://getflix-production-8eb4.up.railway.app/api/movies/select?types=action&composition=AND&keyword=action")
+          fetch(host+"/api/movies/select?types=action&composition=AND&keyword=action")
           .then((response) => response.json())
           .then((data) => {
             console.log("Request");
@@ -44,7 +45,7 @@ import "./ReactCardSlider.css"
           })
           .catch((error) => console.log(error));
           
-          fetch("https://getflix-production-8eb4.up.railway.app/api/movies/select?types=adventure&composition=AND&keyword=adventure")
+          fetch(host+"/api/movies/select?types=adventure&composition=AND&keyword=adventure")
           .then((response) => response.json())
           .then((data) => {
               setAdventureMovies(data);
@@ -52,7 +53,7 @@ import "./ReactCardSlider.css"
           .catch((error) => console.log(error));
 
 
-          fetch("https://getflix-production-8eb4.up.railway.app/api/movies/select?types=thriller&composition=AND&keyword=thriller")
+          fetch(host+"/api/movies/select?types=thriller&composition=AND&keyword=thriller")
           .then((response) => response.json())
           .then((data) => {
               setThrillerMovies(data);
@@ -61,7 +62,7 @@ import "./ReactCardSlider.css"
 
 
 
-          fetch("https://getflix-production-8eb4.up.railway.app/api/movies/select?types=animation&composition=AND")
+          fetch(host+"/api/movies/select?types=animation&composition=AND")
           .then((response) => response.json())
           .then((data) => {
               setAnimatedMovies(data);
@@ -69,7 +70,7 @@ import "./ReactCardSlider.css"
           .catch((error) => console.log(error));
 
 
-          fetch("https://getflix-production-8eb4.up.railway.app/api/movies/select?types=horror&composition=AND&keyword=horror")
+          fetch(host+"/api/movies/select?types=horror&composition=AND&keyword=horror")
           .then((response) => response.json())
           .then((data) => {
               setHorrorMovies(data);
@@ -262,7 +263,7 @@ import "./ReactCardSlider.css"
             const [imageDescription, setImageDescription] = React.useState("");
 
             React.useEffect(() => {
-              fetch("https://getflix-production-8eb4.up.railway.app/api/movies/select?types=action&composition=AND&keyword=action")
+              fetch(host+"/api/movies/select?types=action&composition=AND&keyword=action")
                 .then((response) => response.json())
                 .then((data) => {
                   console.log("Request")

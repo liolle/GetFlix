@@ -2,7 +2,8 @@ import {User} from "./model/users";
 import {Movies} from "./model/movie";
 import {Verif} from "./model/verif";
 import { sendmail, EMAIL_VALIDATION_MODEL1 } from "../src/services/email";
-require('dotenv').config()
+import dotenv from "dotenv";
+dotenv.config();
 
 import {signJWT} from "./util/token"
 // import {signJWT} from "./util/token"

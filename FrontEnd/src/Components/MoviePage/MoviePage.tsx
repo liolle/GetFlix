@@ -16,12 +16,14 @@ interface Movie {
   image: string;
 }
 
+const host =  "http://localhost:3535"
+
 const MoviePage: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
-    axios.get<Movie[]>('https://getflix-production-8eb4.up.railway.app/api/movies/random')
+    axios.get<Movie[]>(host+'/api/movies/random')
       .then(response => {
         setMovies(response.data);
       })

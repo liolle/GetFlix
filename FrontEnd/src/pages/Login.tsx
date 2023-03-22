@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate , Link } from 'react-router-dom';
 
+const host =  "http://localhost:3535"
 const checkInput = (email:string,pwd:string):{status:string, emailErr:string,pwdErr:string}=> {
    const retObj = {
     status:"OK", 
@@ -37,7 +38,7 @@ function Login (){
             else{
               (async ()=>{
                 
-                          const url = "https://getflix-production-8eb4.up.railway.app/login"
+                          const url = host+"/login"
                           const localURL = "http://localhost:3535/login"
                 
                           let option = {

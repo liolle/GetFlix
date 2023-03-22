@@ -2,8 +2,10 @@ import { number, string } from 'prop-types';
 import React from 'react'
 import { useState, useEffect } from 'react';
 
+const host =  "http://localhost:3535"
+
 const addMovieInfo = async (satus:string[],setLinks:React.Dispatch<React.SetStateAction<string[]>>,n:number) =>{
-    let URL = `https://getflix-production-8eb4.up.railway.app/api/movies/random?n=${n}`
+    let URL = host+`/api/movies/random?n=${n}`
     
     try {
         ``

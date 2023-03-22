@@ -2,10 +2,10 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 
 import {  GoVerified } from 'react-icons/go';
-
+const host =  "http://localhost:3535"
 const getUserInfo = async (setUser:React.Dispatch<React.SetStateAction<User>>) =>{
 
-    const url = "https://getflix-production-8eb4.up.railway.app/users/one"
+    const url = host+"/users/one"
     const localURL = "http://localhost:3535/users/one"
 
     let option = {
@@ -43,10 +43,9 @@ type User = {
 
 const sendEmail = async (email:string)=>{
             
-    const url = "https://getflix-production-8eb4.up.railway.app/register/vf"
+    const url = host+"/register/vf"
     const localURL = "http://localhost:3535/register/vf"
     
-    //https://getflix-production-8eb4.up.railway.app/register/vf
     let option = {
         method: 'POST',
         headers: {

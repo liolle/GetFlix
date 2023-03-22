@@ -3,7 +3,8 @@ import { User} from "../model/users";
 import { signJWT } from "../util/token";
 import  bcrypt  from "bcrypt";
 import { Request, Response, NextFunction } from "express";
-require('dotenv').config()
+import dotenv from "dotenv";
+dotenv.config();
 
 const getUser = async (req: Request, res: Response): Promise<void> =>{
     //@ts-ignore

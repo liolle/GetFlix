@@ -27,6 +27,7 @@ const checkInput = (email:string,pwd:string,confPwd:string):{
   return retObj
 }
 
+const host =  "http://localhost:3535"
 
 function Inscription(){
   
@@ -59,7 +60,7 @@ function Inscription(){
 
         (async ()=>{
                 
-                  const url = "https://getflix-production-8eb4.up.railway.app/register"
+                  const url = host+"/register"
                   const localURL = "http://localhost:3535/register"
 
                   let option = {

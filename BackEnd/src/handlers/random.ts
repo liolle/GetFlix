@@ -1,6 +1,7 @@
 import {Movies} from "../model/movie";
 import { Request, Response } from "express";
-require('dotenv').config()
+import dotenv from "dotenv";
+dotenv.config();
 
 const getRandom = async (req: Request, res: Response) =>{
     

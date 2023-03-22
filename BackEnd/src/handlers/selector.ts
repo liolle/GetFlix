@@ -2,7 +2,8 @@ const { json } = require('express')
 import {Movies} from "../model/movie";
 import { Request, Response } from "express";
 import console from "console";
-require('dotenv').config()
+import dotenv from "dotenv";
+dotenv.config();
 
 //types=t1,t2,...&title=x&composition=union|inter&keyword=x
 

@@ -1,12 +1,13 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
 import { Route, Navigate, Outlet } from 'react-router-dom';
 
+const host =  "http://localhost:3535"
 const PrivateRoute = () => {
   const [auth, setAuth] = useState<boolean | null>(null);
 
   useEffect(() => {
     const fetchAuth = async () => {
-      const authRoute = "https://getflix-production-8eb4.up.railway.app/login/auth";
+      const authRoute = host+"/login/auth";
       const authRouteLocal = "http://localhost:3535/login/auth";
       let option = {
         method: 'POST',

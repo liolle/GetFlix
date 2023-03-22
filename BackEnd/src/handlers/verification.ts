@@ -2,7 +2,8 @@ import {User} from "../model/users";
 import {Verif} from "../model/verif";
 import { Request, Response } from 'express';
 import { sendmail , EMAIL_VALIDATION_MODEL1} from "../services/email";
-require('dotenv').config()
+import dotenv from "dotenv";
+dotenv.config();
 
 const createLink = (key:string):string=>{
     return process.env.SERVER+`/register/vfCheck?key=${key}`
