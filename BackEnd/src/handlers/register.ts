@@ -17,6 +17,8 @@ const create = async (user:User, with_pwd:string, res: Response)=>{
             const result = await user.create(with_pwd);
             resolve("New user created")
         } catch (error) {
+            console.log("REGISTER")
+            console.log(error)
             reject(error)
         }
     })
@@ -35,7 +37,9 @@ const register = async (req: Request, res: Response): Promise<void> => {
     
     try {
         await user.findOne() 
+        console.log("Before create")
         let message = await create(user,pwd,res)
+        console.log("After create")
         res.status(200).json({message: message});
         
     } catch (error) {
@@ -50,8 +54,10 @@ const register = async (req: Request, res: Response): Promise<void> => {
             }
         }
         else {
-            let err = (error as string).includes("Duplicate entry") ? "Email already exit" : "Bad request "
-            res.status(400).json({ message: err });
+            console.log(error)
+            console.log("HERE")
+            // let err = (error as string).includes("Duplicate entry") ? "Email already exit" : "Bad request "
+            res.status(400).json({ message: error });
         }
     }
     finally{
