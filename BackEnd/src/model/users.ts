@@ -70,10 +70,13 @@ export class User extends DbConnect {
             this.connection.query(`SELECT * FROM user WHERE email = "${this.email}"`, (err:any, rows:[], fields:any)=>{
                 if (err ){
                     reject(err['sqlMessage'])
+                    console.log(err)
+                    return
                 }
 
                 if (!rows) {
                     reject("no user found")
+                    return
                 }
 
                 resolve(rows)
@@ -90,6 +93,8 @@ export class User extends DbConnect {
             
             this.connection.query(sql, (err:any, rows:any, fields:any)=>{
                 if (err){
+                    console.log("QUERY")
+                    console.log(err)
                     reject(err['sqlMessage'])
                     return
                 }

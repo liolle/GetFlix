@@ -1,24 +1,26 @@
 
 import { createPool, Pool  } from "mysql2";
-// import * as dotenv from "dotenv";
-// dotenv.config();
+const mysql = require('mysql2')
+import * as dotenv from "dotenv";
+ dotenv.config();
 
 abstract class DbConnect {
-  protected connection:Pool;
+  protected connection;
   
   constructor() {
     // dotenv.config();
    
-    this.connection = createPool({
-        host: process.env.MYSQLHOST,
-        user: process.env.MYSQLUSER,
-        password: process.env.MYSQLPASSWORD,
-        database: process.env.DATABASE,
-        port: parseInt(process.env.MYSQLPORT as string),
-        connectionLimit :30,
-        waitForConnections: true,
-        multipleStatements: true 
-    });
+    // this.connection = createPool({
+    //     host: process.env.MYSQLHOST,
+    //     user: process.env.MYSQLUSER,
+    //     password: process.env.MYSQLPASSWORD,
+    //     database: process.env.DATABASE,
+        
+    //     connectionLimit :10,
+    //     waitForConnections: true,
+    //     // multipleStatements: true 
+    // });
+    this.connection = mysql.createConnection(process.env.DATABASE_URL);
     // console.log(`Connected to ${process.env.DATABASE} on Port ${parseInt(process.env.PORT_NUM as string)}`)
     
   }

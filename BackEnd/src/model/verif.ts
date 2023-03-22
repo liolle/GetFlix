@@ -113,24 +113,47 @@ export class Verif extends DbConnect {
         return new Promise<boolean>((resolve, reject) => {
 
             let sqlQuery = `
-                UPDATE user U SET U.status = U.status | ${mask}
-                WHERE U.email IN (SELECT email FROM verification V WHERE V.vToken = '${key}');
-                
-                DELETE FROM verification
-                WHERE vToken = "${key}";
+                UPDATE user U SET U.status = U.status | ${mask} WHERE U.email IN (SELECT email FROM verification V WHERE V.vToken = '${key}');
             
+            `
+            let sqlDelQuery = `
+            DELETE FROM verification WHERE vToken = '${key}';
+        
             `
             
             this.connection.query(sqlQuery, (err:any, rows:[], fields:any)=>{
                 if (err ){
                     console.log(err)
                     reject(err['sqlMessage'])
+                    return
+
                 }
 
                 if (!rows || rows.length === 0) {
                     resolve(false)
+                    return
+
                 }
-                resolve(true)
+
+                this.connection.query(sqlDelQuery, (err:any, rows:[], fields:any)=>{
+                    if (err ){
+                        console.log(err)
+                        reject(err['sqlMessage'])
+                        return
+
+                    }
+    
+                    if (!rows || rows.length === 0) {
+                        resolve(false)
+                        return
+
+                    }
+    
+                    resolve(true)
+                })
+                
+
+                
             })
         })
         
