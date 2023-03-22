@@ -27,7 +27,7 @@ const checkInput = (email:string,pwd:string,confPwd:string):{
   return retObj
 }
 
-const host =  "http://localhost:3535"
+const host =  "https://get-flix-back-kjashfzmp-liolle.vercel.app"
 
 function Inscription(){
   

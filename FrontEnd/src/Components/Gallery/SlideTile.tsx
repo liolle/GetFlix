@@ -7,7 +7,7 @@ type Movie = {
     description: string
 }
 
-const host =  "http://localhost:3535"
+const host =  "https://get-flix-back-kjashfzmp-liolle.vercel.app"
 
 const addMovieInfo = async (setI:React.Dispatch<React.SetStateAction<string[]>>,
     setT:React.Dispatch<React.SetStateAction<string[]>>,

@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 
 import {  GoVerified } from 'react-icons/go';
-const host =  "http://localhost:3535"
+const host =  "https://get-flix-back-kjashfzmp-liolle.vercel.app"
 const getUserInfo = async (setUser:React.Dispatch<React.SetStateAction<User>>) =>{
 
     const url = host+"/users/one"

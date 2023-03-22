@@ -14,7 +14,7 @@ interface Movie {
   image: string;
 }
 
-const host =  "http://localhost:3535"
+const host =  "https://get-flix-back-kjashfzmp-liolle.vercel.app"
 
 const ProfilePage: React.FC = () => {
   const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>([]);

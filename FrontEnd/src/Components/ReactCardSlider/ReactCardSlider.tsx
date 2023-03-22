@@ -11,7 +11,7 @@ import "./ReactCardSlider.css"
     description:string
   }
 
-  const host =  "http://localhost:3535"
+  const host =  "https://get-flix-back-kjashfzmp-liolle.vercel.app"
 
   function ReactCardSlider (){
 

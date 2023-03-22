@@ -1,7 +1,7 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
 import { Route, Navigate, Outlet } from 'react-router-dom';
 
-const host =  "http://localhost:3535"
+const host =  "https://get-flix-back-kjashfzmp-liolle.vercel.app"
 const PrivateRoute = () => {
   const [auth, setAuth] = useState<boolean | null>(null);
 

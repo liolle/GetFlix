@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 
-const host =  "http://localhost:3535"
+const host =  "https://get-flix-back-kjashfzmp-liolle.vercel.app"
 
 const getMovieInfo = async (title:string,setLink:React.Dispatch<React.SetStateAction<string>>) =>{
     let URL = host+"/api/movies/select?title="+title

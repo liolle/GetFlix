@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate , Link } from 'react-router-dom';
 
-const host =  "http://localhost:3535"
+const host =  "https://get-flix-back-kjashfzmp-liolle.vercel.app"
 const checkInput = (email:string,pwd:string):{status:string, emailErr:string,pwdErr:string}=> {
    const retObj = {
     status:"OK", 

@@ -2,7 +2,7 @@ import { number, string } from 'prop-types';
 import React from 'react'
 import { useState, useEffect } from 'react';
 
-const host =  "http://localhost:3535"
+const host =  "https://get-flix-back-kjashfzmp-liolle.vercel.app"
 
 const addMovieInfo = async (satus:string[],setLinks:React.Dispatch<React.SetStateAction<string[]>>,n:number) =>{
     let URL = host+`/api/movies/random?n=${n}`
