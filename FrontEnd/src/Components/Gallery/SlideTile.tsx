@@ -7,14 +7,13 @@ type Movie = {
     description: string
 }
 
-const host =  "https://get-flix-back-kjashfzmp-liolle.vercel.app"
+const host =  "https://get-flix-back-end-liolle.vercel.app"
 
 const addMovieInfo = async (setI:React.Dispatch<React.SetStateAction<string[]>>,
     setT:React.Dispatch<React.SetStateAction<string[]>>,
     setD:React.Dispatch<React.SetStateAction<string[]>>
     ,type:string) =>{
-    let URL = host+`/api/movies/random?n=${4}`
-    let URL2 = host+`/api/movies/select?types=${type}`
+    let URL = host+`/api/movies/random?n=${4}/`
     
     try {
         

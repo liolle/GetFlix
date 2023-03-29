@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate , Link } from 'react-router-dom';
 
-const host =  "https://get-flix-back-kjashfzmp-liolle.vercel.app"
+const host =  "https://get-flix-back-end-liolle.vercel.app"
 const checkInput = (email:string,pwd:string):{status:string, emailErr:string,pwdErr:string}=> {
    const retObj = {
     status:"OK", 
@@ -38,8 +38,7 @@ function Login (){
             else{
               (async ()=>{
                 
-                          const url = host+"/login"
-                          const localURL = "http://localhost:3535/login"
+                          const url = host+"/login/"
                 
                           let option = {
                             method: 'POST',

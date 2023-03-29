@@ -14,13 +14,13 @@ interface Movie {
   image: string;
 }
 
-const host =  "https://get-flix-back-kjashfzmp-liolle.vercel.app"
+const host =  "https://get-flix-back-end-liolle.vercel.app"
 
 const MovieCarousel: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
-    axios.get<Movie[]>(host+'/api/movies/random')
+    axios.get<Movie[]>(host+'/api/movies/random/')
       .then(response => {
         setMovies(response.data);
       })

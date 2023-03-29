@@ -27,7 +27,7 @@ const checkInput = (email:string,pwd:string,confPwd:string):{
   return retObj
 }
 
-const host =  "https://get-flix-back-kjashfzmp-liolle.vercel.app"
+const host =  "https://get-flix-back-end-liolle.vercel.app"
 
 function Inscription(){
   
@@ -60,8 +60,7 @@ function Inscription(){
 
         (async ()=>{
                 
-                  const url = host+"/register"
-                  const localURL = "http://localhost:3535/register"
+                  const url = host+"/register/"
 
                   let option = {
                     method: 'POST',

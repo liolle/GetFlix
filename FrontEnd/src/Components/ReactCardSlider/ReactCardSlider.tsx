@@ -11,7 +11,7 @@ import "./ReactCardSlider.css"
     description:string
   }
 
-  const host =  "https://get-flix-back-kjashfzmp-liolle.vercel.app"
+  const host =  "https://get-flix-back-end-liolle.vercel.app"
 
   function ReactCardSlider (){
 
@@ -29,7 +29,7 @@ import "./ReactCardSlider.css"
       useEffect(() => {
         // Fetch the list of action movies and set it in the state
         
-          fetch(host+"/api/movies/select?types=action&composition=AND&keyword=action")
+          fetch(host+"/api/movies/select?types=action&composition=AND&keyword=action/")
           .then((response) => response.json())
           .then((data) => {
             console.log("Request");

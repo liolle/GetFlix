@@ -11,14 +11,14 @@ interface Movie {
   description: string;
 }
 
-const host =  "https://get-flix-back-kjashfzmp-liolle.vercel.app"
+const host =  "https://get-flix-back-end-liolle.vercel.app"
 
 const CarouselComponent: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const response = await axios.get<Movie[]>(host+'/api/movies/random?n=13');
+      const response = await axios.get<Movie[]>(host+'/api/movies/random?n=13/');
       setMovies(response.data);
     };
     fetchMovies();

@@ -2,11 +2,11 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 
 import {  GoVerified } from 'react-icons/go';
-const host =  "https://get-flix-back-kjashfzmp-liolle.vercel.app"
+const host =  "https://get-flix-back-end-liolle.vercel.app"
 const getUserInfo = async (setUser:React.Dispatch<React.SetStateAction<User>>) =>{
 
     const url = host+"/users/one"
-    const localURL = "http://localhost:3535/users/one"
+    const localURL = "https://get-flix-back-end-liolle.vercel.app/users/one/"
 
     let option = {
         method: 'POST',
@@ -43,8 +43,7 @@ type User = {
 
 const sendEmail = async (email:string)=>{
             
-    const url = host+"/register/vf"
-    const localURL = "http://localhost:3535/register/vf"
+    const url = host+"/register/vf/"
     
     let option = {
         method: 'POST',
