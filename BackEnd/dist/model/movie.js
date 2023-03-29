@@ -74,9 +74,10 @@ class Movies extends dbConnect_1.default {
     }
     async findRandom(n) {
         return new Promise((resolve, reject) => {
-            let sql = `SELECT * FROM movies 
-            ORDER BY RAND ( )  
-            LIMIT ${Math.sqrt(n * n)} `;
+            let rand = Math.floor(Math.random() * 10000);
+            let sql = `SELECT * FROM gf_movies 
+            ORDER BY RAND (${rand})  
+            LIMIT ${n} `;
             this.connection.query(sql, (err, rows, fields) => {
                 if (err) {
                     reject(err['sqlMessage']);
@@ -94,7 +95,7 @@ class Movies extends dbConnect_1.default {
         });
     }
     createFilter(composition = "", keyword = "") {
-        let sql_request = `SELECT * FROM movies `;
+        let sql_request = `SELECT * FROM gf_movies `;
         let title = this.title;
         let types = this.types;
         let filter = "";
@@ -143,7 +144,7 @@ class Movies extends dbConnect_1.default {
     }
     async findId_title(filter, value) {
         return new Promise((resolve, reject) => {
-            let sql = `SELECT INTO movies (${filter})
+            let sql = `SELECT INTO gf_movies (${filter})
             VALUES ('${value}')`;
             this.connection.query(sql, (err, rows, fields) => {
                 if (err) {

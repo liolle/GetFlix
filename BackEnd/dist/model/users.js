@@ -50,7 +50,7 @@ class User extends dbConnect_1.default {
     }
     async findOne() {
         return new Promise((resolve, reject) => {
-            this.connection.query(`SELECT * FROM user WHERE email = "${this.email}"`, (err, rows, fields) => {
+            this.connection.query(`SELECT * FROM gf_user WHERE email = "${this.email}"`, (err, rows, fields) => {
                 if (err) {
                     reject(err['sqlMessage']);
                     console.log(err);
@@ -67,7 +67,7 @@ class User extends dbConnect_1.default {
     async create(pwd) {
         const hashedPwd = await bcrypt_1.default.hash(pwd, 10);
         return new Promise((resolve, reject) => {
-            let sql = `INSERT INTO user (email,pwd,username,status,token)
+            let sql = `INSERT INTO gf_user (email,pwd,username,status,token)
             VALUES ('${this.email}', '${hashedPwd}', '',0,'')`;
             this.connection.query(sql, (err, rows, fields) => {
                 if (err) {
@@ -94,7 +94,7 @@ class User extends dbConnect_1.default {
         return new Promise((resolve, reject) => {
             if (username == '' && status == 0 && token == 'x')
                 reject("missing update argument");
-            let sql = `UPDATE user SET ${updateString(username, status, token)} WHERE email = '${this.email}'`;
+            let sql = `UPDATE gf_user SET ${updateString(username, status, token)} WHERE email = '${this.email}'`;
             this.connection.query(sql, (err, rows, fields) => {
                 if (err) {
                     reject("Request error: " + err['sqlMessage']);
@@ -105,7 +105,7 @@ class User extends dbConnect_1.default {
     }
     delete() {
         return new Promise((resolve, reject) => {
-            let sql = `DELETE from user 
+            let sql = `DELETE from gf_user 
             WHERE email = '${this.email}'`;
             this.connection.query(sql, (err, rows, fields) => {
                 if (err) {

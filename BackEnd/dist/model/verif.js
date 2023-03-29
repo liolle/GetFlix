@@ -66,7 +66,7 @@ class Verif extends dbConnect_1.default {
     }
     async findOne() {
         return new Promise((resolve, reject) => {
-            this.connection.query(`SELECT * FROM verificaton WHERE vToken = "${this.vToken}"`, (err, rows, fields) => {
+            this.connection.query(`SELECT * FROM gf_verificaton WHERE vToken = "${this.vToken}"`, (err, rows, fields) => {
                 if (err) {
                     reject(err['sqlMessage']);
                 }
@@ -80,11 +80,11 @@ class Verif extends dbConnect_1.default {
     async addStatusFromVf(key, mask) {
         return new Promise((resolve, reject) => {
             let sqlQuery = `
-                UPDATE user U SET U.status = U.status | ${mask} WHERE U.email IN (SELECT email FROM verification V WHERE V.vToken = '${key}');
+                UPDATE gf_user U SET U.status = U.status | ${mask} WHERE U.email IN (SELECT email FROM gf_verification V WHERE V.vToken = '${key}');
             
             `;
             let sqlDelQuery = `
-            DELETE FROM verification WHERE vToken = '${key}';
+            DELETE FROM gf_verification WHERE vToken = '${key}';
         
             `;
             this.connection.query(sqlQuery, (err, rows, fields) => {
@@ -115,7 +115,7 @@ class Verif extends dbConnect_1.default {
     async removeStatus(email, mask) {
         return new Promise((resolve, reject) => {
             let sqlQuery = `
-                UPDATE user SET status = status & (~${mask})
+                UPDATE gf_user SET status = status & (~${mask})
                 WHERE email = "${email}";
             
             `;
@@ -142,7 +142,7 @@ class Verif extends dbConnect_1.default {
             */
             let timeStamp = Verif.getTimeStamp();
             let sql = `
-            INSERT INTO verification (email,vToken,timeout,type)
+            INSERT INTO gf_verification (email,vToken,timeout,type)
             VALUES('${this.email}','${vToken}',TIMESTAMP('${timeStamp}','0:15:0'),${this.type})
             `;
             this.connection.query(sql, (err, rows, fields) => {
@@ -160,7 +160,7 @@ class Verif extends dbConnect_1.default {
     }
     delete() {
         return new Promise((resolve, reject) => {
-            let sql = `DELETE from verification 
+            let sql = `DELETE from gf_verification 
             WHERE vToken = '${this.vToken}'`;
             this.connection.query(sql, (err, rows, fields) => {
                 if (err) {
