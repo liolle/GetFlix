@@ -10,7 +10,7 @@ CREATE TABLE gf_users (
 
 
 CREATE TABLE gf_movies (
-    movieID int PRIMARY KEY AUTO_INCREMENT ,
+    movieID int PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255),
     videoLink VARCHAR(255),
     title VARCHAR(128),
