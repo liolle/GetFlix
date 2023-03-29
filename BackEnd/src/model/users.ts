@@ -67,7 +67,7 @@ export class User extends DbConnect {
     async findOne(){
         return new Promise<any>((resolve, reject) => {
             
-            this.connection.query(`SELECT * FROM user WHERE email = "${this.email}"`, (err:any, rows:[], fields:any)=>{
+            this.connection.query(`SELECT * FROM gf_user WHERE email = "${this.email}"`, (err:any, rows:[], fields:any)=>{
                 if (err ){
                     reject(err['sqlMessage'])
                     console.log(err)
@@ -88,7 +88,7 @@ export class User extends DbConnect {
         const hashedPwd =  await bcrypt.hash(pwd, 10)
         return new Promise<boolean>((resolve, reject) => {
 
-            let sql = `INSERT INTO user (email,pwd,username,status,token)
+            let sql = `INSERT INTO gf_user (email,pwd,username,status,token)
             VALUES ('${this.email}', '${hashedPwd}', '',0,'')`
             
             this.connection.query(sql, (err:any, rows:any, fields:any)=>{
@@ -117,7 +117,7 @@ export class User extends DbConnect {
 
         return new Promise<boolean>((resolve, reject) => {
             if (username ==''&&status==0&&token=='x') reject("missing update argument")
-            let sql = `UPDATE user SET ${updateString(username,status,token)} WHERE email = '${this.email}'`
+            let sql = `UPDATE gf_user SET ${updateString(username,status,token)} WHERE email = '${this.email}'`
             
             this.connection.query(sql, (err:any, rows:any, fields:any)=>{
                 if (err){
@@ -130,7 +130,7 @@ export class User extends DbConnect {
     delete():Promise<boolean>{
         return new Promise<boolean>((resolve, reject) => {
 
-            let sql = `DELETE from user 
+            let sql = `DELETE from gf_user 
             WHERE email = '${this.email}'`
             
             this.connection.query(sql, (err:any, rows:any, fields:any)=>{

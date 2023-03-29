@@ -8,19 +8,9 @@ abstract class DbConnect {
   protected connection;
   
   constructor() {
-    // dotenv.config();
-   
-    // this.connection = createPool({
-    //     host: process.env.MYSQLHOST,
-    //     user: process.env.MYSQLUSER,
-    //     password: process.env.MYSQLPASSWORD,
-    //     database: process.env.DATABASE,
-        
-    //     connectionLimit :10,
-    //     waitForConnections: true,
-    //     // multipleStatements: true 
-    // });
+    
     this.connection = mysql.createConnection(process.env.DATABASE_URL);
+    // this.connection = mysql.createConnection("mysql://root:root@localhost/planetscale");
     // console.log(`Connected to ${process.env.DATABASE} on Port ${parseInt(process.env.PORT_NUM as string)}`)
     
   }

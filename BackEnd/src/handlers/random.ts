@@ -14,6 +14,8 @@ const getRandom = async (req: Request, res: Response) =>{
 
         dbres.forEach((element:any) => {
             if (element['name']) {
+                
+                
                 let image = "https://image.tmdb.org/t/p/w500" + element['name']
                 Object.assign(element,{image:image})
             }
