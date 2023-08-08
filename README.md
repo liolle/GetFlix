@@ -27,11 +27,4 @@ Visualize is a streaming website that allows users to choose from a huge movie c
 <img src="./BackEnd/img/landingPage_v1.png" style="border-radius:10px"/>
 </a>
 
-### Sources 
-Here are some of the sources we used to help us build this project:
 
-- [React](https://fr.reactjs.org/)
-- [Tailwind](https://tailwindcss.com/)
-- [Node.js](https://nodejs.org/en/docs/)
-- [Express](https://expressjs.com/)
-- [MySQL](https://www.mysql.com/fr/)
